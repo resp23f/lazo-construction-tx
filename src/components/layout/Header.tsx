@@ -25,9 +25,14 @@ export default function Header() {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="h-12 w-48 bg-primary flex items-center justify-center text-white font-heading font-bold text-lg">
-              LAZO Construction
-            </div>
+            <Image
+              src="/logo.png"
+              alt="LAZO Construction LLC"
+              width={180}
+              height={48}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
   description:
     "Professional residential and commercial construction services in Austin, Houston, and Central Texas. Kitchen remodels, bathroom renovations, commercial build-outs. 20+ years experience.",
+  appleWebApp: {
+    title: "LAZO",
+  },
 };
 
 export default function RootLayout({

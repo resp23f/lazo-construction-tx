@@ -24,13 +24,13 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between py-4">
           {/* LAZO Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center -ml-4">
             <Image
               src="/logo.png"
               alt="LAZO Construction LLC"
-              width={200}
-              height={60}
-              className="h-14 w-auto"
+              width={320}
+              height={100}
+              className="h-44 w-auto -my-10"
               priority
             />
           </Link>

@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cleanup": "find . -name '._*' -delete && echo 'Cleaned up macOS junk files'"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -23,7 +23,7 @@ export default function Header() {
     <header className="bg-surface shadow-sm sticky top-0 z-50">
       <Container>
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
+          {/* LAZO Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"

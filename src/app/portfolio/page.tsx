@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Metadata } from "next";
 import Container from "@/components/layout/Container";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
@@ -31,7 +32,9 @@ export default function PortfolioPage() {
       {/* Portfolio Gallery */}
       <section className="py-20 bg-background">
         <Container>
-          <PortfolioGrid />
+          <Suspense fallback={<div className="text-center py-12 text-text-muted">Loading projects...</div>}>
+            <PortfolioGrid />
+          </Suspense>
         </Container>
       </section>
     </>

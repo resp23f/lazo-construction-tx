@@ -23,11 +23,11 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-sm uppercase tracking-wide transition-colors";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-heading font-bold text-sm uppercase tracking-wide transition-colors";
 
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary-light",
-    secondary: "bg-primary-dark text-white hover:bg-primary",
+    primary: "bg-primary text-white hover:bg-primary-light border-2 border-primary",
+    secondary: "bg-primary-dark text-white hover:bg-primary border-2 border-primary-dark",
     outline:
       "border-2 border-primary text-primary hover:bg-primary hover:text-white",
   };

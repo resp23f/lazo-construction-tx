@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import FilterBar from "./FilterBar";
 import LightboxModal from "./LightboxModal";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface PortfolioItem {
   id: string;
@@ -28,9 +30,18 @@ const portfolioItems: PortfolioItem[] = [
 const categories = ["All", "Residential", "Commercial", "Kitchens", "Bathrooms"];
 
 export default function PortfolioGrid() {
+  const searchParams = useSearchParams();
+  const filterParam = searchParams.get("filter");
+
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (filterParam && categories.includes(filterParam)) {
+      setActiveCategory(filterParam);
+    }
+  }, [filterParam]);
 
   const filteredItems =
     activeCategory === "All"
@@ -62,15 +73,16 @@ export default function PortfolioGrid() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredItems.map((item, index) => (
-          <button
-            key={item.id}
-            onClick={() => openLightbox(index)}
-            className="aspect-square bg-gray-200 flex items-center justify-center border border-gray-300 hover:border-primary hover:shadow-md transition-all cursor-pointer"
-          >
-            <span className="text-text-muted text-sm text-center px-4">
-              {item.alt}
-            </span>
-          </button>
+          <ScrollReveal key={item.id} delay={index * 50}>
+            <button
+              onClick={() => openLightbox(index)}
+              className="w-full aspect-square bg-gray-200 rounded-xl flex items-center justify-center border border-gray-300 hover:border-primary hover:shadow-md transition-all cursor-pointer"
+            >
+              <span className="text-text-muted text-sm text-center px-4">
+                {item.alt}
+              </span>
+            </button>
+          </ScrollReveal>
         ))}
       </div>
 

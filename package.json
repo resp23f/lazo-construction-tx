@@ -10,6 +10,7 @@
     "cleanup": "find . -name '._*' -delete && echo 'Cleaned up macOS junk files'"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.4.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./Container";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -12,33 +13,64 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-dark text-white">
+    <footer className="bg-gray-200 text-text">
       <Container>
         <div className="py-12">
           {/* Top Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 justify-items-center lg:justify-items-stretch items-start">
             {/* Logo & Description */}
-            <div>
-              <div className="font-heading font-bold text-xl mb-4">
-                LAZO Construction
-              </div>
-              <p className="text-gray-300 text-sm">
-                Professional residential and commercial construction services
-                across Texas. Quality craftsmanship since day one.
+            <div className="flex flex-col items-center -mt-6">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/logo.png"
+                  alt="LAZO Construction LLC"
+                  width={160}
+                  height={50}
+                  className="h-40 w-auto"
+                />
+              </Link>
+              <p className="font-heading text-text-muted text-xs italic -mt-3">
+                Your Vision, Our Craft<sup className="text-xs">™</sup>
               </p>
+              {/* Social Links */}
+              <div className="flex items-center gap-4 mt-6">
+                <a
+                  href="#"
+                  aria-label="Facebook"
+                  className="text-text-muted hover:text-primary transition-colors"
+                >
+                  <Facebook className="h-5 w-5" strokeWidth={1.5} />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  className="text-text-muted hover:text-primary transition-colors"
+                >
+                  <Instagram className="h-5 w-5" strokeWidth={1.5} />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Google Business"
+                  className="text-text-muted hover:text-primary transition-colors"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Navigation */}
-            <div>
+            <div className="flex flex-col items-center">
               <h3 className="font-heading font-bold text-lg mb-4">
                 Quick Links
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2 text-center">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors text-sm"
+                      className="text-text-muted hover:text-primary transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -48,81 +80,88 @@ export default function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div>
+            <div className="flex flex-col items-center">
               <h3 className="font-heading font-bold text-lg mb-4">
                 Contact Us
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2 flex flex-col items-center">
                 <li>
                   <a
                     href="tel:+12814066787"
-                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm"
                   >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    (281) 406-6787
+                    <Phone className="h-4 w-4 flex-shrink-0" strokeWidth={2} />
+                    <span>(281) 406-6787</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="tel:+18328583834"
-                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm"
                   >
-                    <Phone className="h-4 w-4" strokeWidth={2} />
-                    (832) 858-3834
+                    <Phone className="h-4 w-4 flex-shrink-0" strokeWidth={2} />
+                    <span>(832) 858-3834</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="mailto:info@lazoconstructiontx.com"
-                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm"
                   >
-                    <Mail className="h-4 w-4" strokeWidth={2} />
-                    info@lazoconstructiontx.com
+                    <Mail className="h-4 w-4 flex-shrink-0" strokeWidth={2} />
+                    <span>info@lazoconstructiontx.com</span>
                   </a>
                 </li>
               </ul>
             </div>
 
             {/* Service Areas */}
-            <div>
+            <div className="flex flex-col items-center">
               <h3 className="font-heading font-bold text-lg mb-4">
                 Service Areas
               </h3>
-              <div className="flex items-start gap-2 text-gray-300 text-sm">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" strokeWidth={2} />
-                <span>
-                  Austin, Houston, Manor & surrounding areas in Central and
-                  Southeast Texas
-                </span>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
+                {["Greater Austin", "Greater Houston", "Central Texas", "Southeast Texas"].map((area) => (
+                  <span
+                    key={area}
+                    className="text-text-muted text-sm"
+                  >
+                    {area}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Bottom Row */}
-          <div className="pt-8 border-t border-gray-700">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">
-                &copy; {new Date().getFullYear()} LAZO Construction LLC. All
-                rights reserved.
+        </div>
+      </Container>
+
+      {/* Bottom Row */}
+      <div className="border-t border-gray-300">
+        <Container>
+          <div className="py-5">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-center md:text-left">
+              <p className="text-gray-500 text-xs uppercase tracking-wide">
+                &copy; {new Date().getFullYear()} LAZO Construction LLC. All Rights Reserved.
               </p>
-              <div className="flex gap-6">
+              <div className="flex justify-center md:justify-end gap-6">
                 <Link
                   href="/privacy"
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                  className="text-gray-500 hover:text-gray-700 transition-colors text-xs uppercase tracking-wide"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/terms"
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                  className="text-gray-500 hover:text-gray-700 transition-colors text-xs uppercase tracking-wide"
                 >
                   Terms of Service
                 </Link>
               </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </footer>
   );
 }

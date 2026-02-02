@@ -1,11 +1,49 @@
 import { Resend } from "resend";
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!secretKey) {
+    console.error("TURNSTILE_SECRET_KEY is not configured");
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: secretKey,
+          response: token,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error("Turnstile verification failed:", error);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
-  const { name, email, phone, serviceType, message } = await request.json();
+  const { name, email, phone, serviceType, message, turnstileToken } = await request.json();
 
   // Validate required fields
   if (!name || !email || !message) {
     return Response.json({ error: "Missing required fields" }, { status: 400 });
+  }
+
+  // Verify Turnstile token
+  if (!turnstileToken) {
+    return Response.json({ error: "Please complete the verification" }, { status: 400 });
+  }
+
+  const isValidToken = await verifyTurnstile(turnstileToken);
+  if (!isValidToken) {
+    return Response.json({ error: "Verification failed" }, { status: 400 });
   }
 
   // Check for API key

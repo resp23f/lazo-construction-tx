@@ -1,7 +1,11 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTABanner from "@/components/home/CTABanner";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { Hammer, MessageSquare, Home, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -13,23 +17,23 @@ export const metadata: Metadata = {
 const coreValues = [
   {
     icon: Hammer,
-    title: "Quality Craftsmanship",
-    description: "We don't cut corners. Every detail matters.",
+    title: "Quality You Can See",
+    description: "We take pride in the details — the kind you notice every day.",
   },
   {
     icon: MessageSquare,
-    title: "Clear Communication",
-    description: "You'll always know where your project stands.",
+    title: "Straight Talk",
+    description: "No runaround. We keep you in the loop from start to finish.",
   },
   {
     icon: Home,
-    title: "Respect for Your Space",
-    description: "Clean job sites, respectful crews, minimal disruption.",
+    title: "Your Home, Our Care",
+    description: "We treat your space like it's our own. Always.",
   },
   {
     icon: CheckCircle,
-    title: "Results That Last",
-    description: "Built right the first time, built to last.",
+    title: "Built to Last",
+    description: "We do it right the first time so you don't have to call twice.",
   },
 ];
 
@@ -37,46 +41,99 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-primary py-16">
+      <section className="bg-primary py-12">
         <Container>
-          <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
-            About LAZO Construction
-          </h1>
+          <ScrollReveal>
+            <Breadcrumbs items={[{ label: "About" }]} />
+            <h1 className="font-heading text-4xl font-semibold text-white sm:text-5xl tracking-tight">
+              About Us
+            </h1>
+            <p className="mt-4 text-xl text-gray-300 max-w-2xl">
+              20+ years of craftsmanship. One standard of excellence.
+            </p>
+          </ScrollReveal>
         </Container>
       </section>
 
       {/* Company Story */}
       <section className="py-20 bg-surface">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl font-bold text-primary mb-6">
-              Built on Experience. Driven by Excellence.
-            </h2>
-            <div className="prose prose-lg text-text-muted">
-              <p>
-                With over 20 years of hands-on experience in the construction
-                industry, LAZO Construction LLC delivers residential and
-                commercial projects across Central and Southeast Texas. From
-                kitchen remodels to full commercial build-outs, we bring the
-                same standard to every job: precision craftsmanship, clear
-                communication, and results that last.
-              </p>
-              <p>
-                Locally owned and operated, we&apos;ve built our reputation one
-                project at a time — earning the trust of homeowners and business
-                owners throughout Austin, Houston, Manor, and surrounding
-                communities.
-              </p>
-              <p>
-                We believe every project deserves the same level of attention
-                and care, whether it&apos;s a bathroom refresh or a complete
-                office renovation. Our team takes pride in showing up on time,
-                keeping job sites clean, and delivering what we promise.
-              </p>
-              <p className="font-heading font-bold text-primary">
-                Licensed. Insured. Ready to build.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Image */}
+            <ScrollReveal>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/lazo-construction-austin-tx-home-remodel-exterior-work.avif"
+                  alt="LAZO Construction crew working on a home exterior remodel in Austin, Texas"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Text */}
+            <ScrollReveal delay={100}>
+              <h2 className="font-heading text-3xl font-bold text-primary mb-6">
+                Real People. Real Work. Real Results.
+              </h2>
+              <div className="prose prose-lg text-text-muted space-y-5">
+                <p>
+                  We&apos;re a small, local team that loves what we do. When you
+                  reach out, you&apos;re talking directly to the people who will
+                  actually be working on your project. That personal connection
+                  matters to us.
+                </p>
+                <p>
+                  For over 20 years, we&apos;ve been helping families and businesses
+                  throughout Austin, Houston, and Central Texas bring their spaces
+                  to life. Whether it&apos;s a kitchen that finally works for your
+                  family or an office that feels just right, we love being part
+                  of that transformation.
+                </p>
+                <p>
+                  There&apos;s nothing better than seeing a client light up when
+                  they see the finished result. That feeling is why we got into
+                  this work, and it&apos;s what keeps us excited about every new project.
+                </p>
+                <p>
+                  We keep things simple: show up on time, respect your space,
+                  and do work we&apos;re proud of. That&apos;s our promise to you.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-b from-surface to-background">
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            <AnimatedCounter
+              end={20}
+              suffix="+"
+              label="Years Experience"
+              duration={2000}
+            />
+            <AnimatedCounter
+              end={500}
+              suffix="+"
+              label="Projects Completed"
+              duration={2500}
+            />
+            <AnimatedCounter
+              end={97}
+              suffix="%"
+              label="Satisfaction Rate"
+              duration={1800}
+            />
+            <AnimatedCounter
+              end={8}
+              suffix=""
+              label="Cities Served"
+              duration={1200}
+            />
           </div>
         </Container>
       </section>
@@ -84,36 +141,30 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-20 bg-background">
         <Container>
-          <SectionHeading title="Our Core Values" />
+          <ScrollReveal>
+            <SectionHeading title="What We Stand For" />
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreValues.map((value) => {
+            {coreValues.map((value, index) => {
               const Icon = value.icon;
               return (
-                <div key={value.title} className="bg-surface p-6 border border-gray-100">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary mb-4">
-                    <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+                <ScrollReveal key={value.title} delay={index * 100}>
+                  <div className="bg-surface p-6 rounded-xl border border-gray-100 h-full">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary mb-4">
+                      <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-heading font-bold text-lg text-text">
+                      {value.title}
+                    </h3>
+                    <p className="mt-2 text-text-muted text-sm">
+                      {value.description}
+                    </p>
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-text">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-text-muted text-sm">
-                    {value.description}
-                  </p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
-        </Container>
-      </section>
-
-      {/* Credentials */}
-      <section className="py-12 bg-surface">
-        <Container>
-          <p className="text-center text-text-muted">
-            LAZO Construction LLC is a fully licensed and insured general
-            contractor serving Texas.
-          </p>
         </Container>
       </section>
 

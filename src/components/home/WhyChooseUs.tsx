@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { Award, Shield, MapPin, CheckCircle } from "lucide-react";
 
 const valueProps = [
@@ -27,25 +28,29 @@ const valueProps = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-b from-blue-50/50 via-sky-50/40 to-amber-50/30">
       <Container>
-        <SectionHeading title="Why Choose Us" />
+        <ScrollReveal>
+          <SectionHeading title="Why Choose Us" />
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {valueProps.map((prop) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {valueProps.map((prop, index) => {
             const Icon = prop.icon;
             return (
-              <div key={prop.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary mb-4">
-                  <Icon className="h-8 w-8 text-white" strokeWidth={1.5} />
+              <ScrollReveal key={prop.title} delay={index * 100}>
+                <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center h-full">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 mb-5">
+                    <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-heading font-bold text-lg text-text">
+                    {prop.title}
+                  </h3>
+                  <p className="mt-2 text-text-muted text-sm leading-relaxed">
+                    {prop.description}
+                  </p>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-text">
-                  {prop.title}
-                </h3>
-                <p className="mt-2 text-text-muted text-sm">
-                  {prop.description}
-                </p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

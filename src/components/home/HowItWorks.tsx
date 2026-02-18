@@ -18,7 +18,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <Container>
         <ScrollReveal>
           <SectionHeading

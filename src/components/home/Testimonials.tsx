@@ -9,7 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 const testimonials = [
   {
     quote:
-      "We hired Lazo construction for a remodel in austin tx that included kitchen work and new flooring. Jonny and his crew were easy to work with, showed up when they said they would and did solid work. communication was painless and really happy with how it turned out and would recommend Lazo construction to anyone looking for a solid contractor in Austin.",
+      "Hired Lazo for a kitchen remodel and new flooring in Austin. Jonny and his crew were easy to work with, showed up when they said they would, and did solid work. communication was painless. would definitely recommend them to anyone looking for a solid contractor.",
     author: "Michael R.",
     initials: "MR",
     location: "Austin",
@@ -51,7 +51,7 @@ export default function Testimonials() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-100/50 via-indigo-50/30 to-slate-200/60">
+    <section className="py-12 bg-gray-50">
       <Container>
         <ScrollReveal>
           <SectionHeading title={t("testimonials.heading")} />

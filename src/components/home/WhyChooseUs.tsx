@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-50/50 via-sky-50/40 to-amber-50/30">
+    <section className="py-12 bg-white">
       <Container>
         <ScrollReveal>
           <SectionHeading title={t("whyUs.heading")} />

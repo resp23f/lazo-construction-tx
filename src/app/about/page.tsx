@@ -18,7 +18,7 @@ const coreValues = [
   {
     icon: Hammer,
     title: "Quality You Can See",
-    description: "We take pride in the details — the kind you notice every day.",
+    description: "We take pride in the details, the kind you notice every day.",
   },
   {
     icon: MessageSquare,
@@ -79,10 +79,10 @@ export default function AboutPage() {
               </h2>
               <div className="prose prose-lg text-text-muted space-y-5">
                 <p>
-                  We&apos;re a small, local team that loves what we do. When you
-                  reach out, you&apos;re talking directly to the people who will
-                  actually be working on your project. That personal connection
-                  matters to us.
+                  When you reach out to us, you&apos;re talking directly to the
+                  people who will actually be working on your project. That
+                  personal connection matters to us, and it shows in every
+                  detail of our work.
                 </p>
                 <p>
                   For over 20 years, we&apos;ve been helping families and businesses
@@ -100,6 +100,45 @@ export default function AboutPage() {
                   We keep things simple: show up on time, respect your space,
                   and do work we&apos;re proud of. That&apos;s our promise to you.
                 </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Team */}
+      <section className="py-20 bg-background">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Text */}
+            <ScrollReveal>
+              <h2 className="font-heading text-3xl font-bold text-primary mb-6">
+                The Crew Behind Every Project
+              </h2>
+              <div className="prose prose-lg text-text-muted space-y-5">
+                <p>
+                  This is what a typical day looks like for us. Sleeves rolled
+                  up, scaffolding out, and the whole team working together to
+                  get it done right.
+                </p>
+                <p>
+                  We don&apos;t sub out the hard stuff. Our crew handles
+                  everything from framing and drywall to finish work and
+                  final paint. When you hire LAZO, you get LAZO.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Image */}
+            <ScrollReveal delay={100}>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/about-crew-commercial-buildout-scaffolding.jpeg"
+                  alt="LAZO Construction crew working on a commercial build-out with scaffolding"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </ScrollReveal>
           </div>

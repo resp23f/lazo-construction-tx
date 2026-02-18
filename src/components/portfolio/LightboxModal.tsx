@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LightboxModalProps {
@@ -8,6 +9,7 @@ interface LightboxModalProps {
   onClose: () => void;
   currentIndex: number;
   totalImages: number;
+  imageSrc: string;
   imageAlt: string;
   onPrev: () => void;
   onNext: () => void;
@@ -18,6 +20,7 @@ export default function LightboxModal({
   onClose,
   currentIndex,
   totalImages,
+  imageSrc,
   imageAlt,
   onPrev,
   onNext,
@@ -45,42 +48,50 @@ export default function LightboxModal({
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 p-2 text-white hover:text-gray-300 transition-colors"
+        className="absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
         aria-label="Close lightbox"
       >
         <X className="h-8 w-8" strokeWidth={2} />
       </button>
 
-      {/* Navigation */}
+      {/* Navigation - Previous */}
       {currentIndex > 0 && (
         <button
           onClick={onPrev}
-          className="absolute left-4 p-2 text-white hover:text-gray-300 transition-colors"
+          className="absolute left-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
           aria-label="Previous image"
         >
           <ChevronLeft className="h-10 w-10" strokeWidth={2} />
         </button>
       )}
 
+      {/* Navigation - Next */}
       {currentIndex < totalImages - 1 && (
         <button
           onClick={onNext}
-          className="absolute right-4 p-2 text-white hover:text-gray-300 transition-colors"
+          className="absolute right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
           aria-label="Next image"
         >
           <ChevronRight className="h-10 w-10" strokeWidth={2} />
         </button>
       )}
 
-      {/* Image Placeholder */}
-      <div className="max-w-4xl max-h-[80vh] mx-4">
-        <div className="bg-gray-800 aspect-video flex items-center justify-center min-w-[300px] sm:min-w-[500px]">
-          <span className="text-gray-400 text-center px-4">{imageAlt}</span>
+      {/* Image */}
+      <div className="relative max-w-5xl w-full max-h-[85vh] mx-4">
+        <div className="relative w-full h-[85vh]">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            sizes="100vw"
+            className="object-contain"
+            priority
+          />
         </div>
       </div>
 
       {/* Counter */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded-full">
         {currentIndex + 1} / {totalImages}
       </div>
     </div>

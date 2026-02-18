@@ -21,7 +21,7 @@ const steps = [
     number: "02",
     title: "Free Consultation",
     description:
-      "We visit your property, discuss your vision, assess the scope, and answer all your questions — no obligation.",
+      "We visit your property, discuss your vision, assess the scope, and answer all your questions. No obligation.",
     icon: CalendarCheck,
   },
   {
@@ -42,112 +42,52 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Blueprint grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #0c4a6e 1px, transparent 1px),
-            linear-gradient(to bottom, #0c4a6e 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
-      
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-50" />
-      
-      <Container className="relative z-10">
+    <section className="py-20 bg-white">
+      <Container>
         <ScrollReveal>
           <SectionHeading
             title="How It Works"
-            subtitle="From first call to final walkthrough — here's what to expect."
+            subtitle="From first call to final walkthrough, here's what to expect."
           />
         </ScrollReveal>
 
-        {/* Staggered cards */}
-        <div className="max-w-4xl mx-auto space-y-8 lg:space-y-6">
+        <div className="max-w-3xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
-            const isEven = index % 2 === 0;
-            
+            const isLast = index === steps.length - 1;
+
             return (
-              <ScrollReveal 
-                key={step.number} 
-                delay={index * 150}
-              >
-                <div 
-                  className={`relative flex ${
-                    isEven ? 'lg:justify-start' : 'lg:justify-end'
-                  }`}
-                >
-                  {/* Card */}
-                  <div 
-                    className={`
-                      relative bg-white rounded-2xl p-6 lg:p-8 
-                      shadow-lg hover:shadow-xl 
-                      border border-gray-100
-                      transition-all duration-300 hover:-translate-y-1
-                      w-full lg:w-[85%]
-                      ${isEven ? 'lg:ml-0' : 'lg:mr-0'}
-                    `}
-                  >
-                    {/* Big watermark number */}
-                    <span 
-                      className={`
-                        absolute top-4 font-heading font-bold text-[120px] lg:text-[160px] 
-                        leading-none text-primary/[0.04] select-none pointer-events-none
-                        ${isEven ? 'right-4 lg:right-8' : 'right-4 lg:left-8'}
-                      `}
-                    >
-                      {step.number}
-                    </span>
-                    
-                    {/* Content */}
-                    <div className="relative z-10 flex items-start gap-5">
-                      {/* Icon container */}
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <Icon 
-                          className="w-7 h-7 text-primary" 
-                          strokeWidth={1.5} 
-                        />
-                      </div>
-                      
-                      {/* Text */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-primary/60 tracking-wide">
-                            STEP {step.number}
-                          </span>
-                        </div>
-                        <h3 className="font-heading font-bold text-xl lg:text-2xl text-text mb-2">
-                          {step.title}
-                        </h3>
-                        <p className="text-text-muted leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
+              <ScrollReveal key={step.number} delay={index * 100}>
+                <div className="flex gap-6">
+                  {/* Left column: icon + connector */}
+                  <div className="flex flex-col items-center">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
                     </div>
+                    {!isLast && (
+                      <div className="w-px flex-1 bg-gray-200 my-2" />
+                    )}
                   </div>
-                  
-                  {/* Connector line for desktop */}
-                  {index < steps.length - 1 && (
-                    <div 
-                      className={`
-                        hidden lg:block absolute top-full left-1/2 
-                        w-px h-6 bg-gradient-to-b from-primary/20 to-transparent
-                        -translate-x-1/2
-                      `}
-                    />
-                  )}
+
+                  {/* Right column: content */}
+                  <div className={`${isLast ? "pb-0" : "pb-10"} pt-1`}>
+                    <span className="text-xs font-semibold text-primary/50 uppercase tracking-wider">
+                      Step {step.number}
+                    </span>
+                    <h3 className="font-heading font-bold text-lg text-text mt-1 mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-text-muted leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             );
           })}
         </div>
 
-        <ScrollReveal delay={600}>
+        <ScrollReveal delay={500}>
           <div className="mt-14 text-center">
             <p className="text-text-muted mb-6">
               Ready to get started? Let&apos;s talk about your project.

@@ -10,23 +10,23 @@ const testimonials = [
     author: "Michael R.",
     initials: "MR",
     location: "Austin",
-    color: "bg-blue-500",
+    color: "bg-gray-400",
   },
   {
     quote:
-      "LAZO handled our office renovation with zero disruption to our business. Communicated every step of the way.",
+      "had Lazo renovate our office and they made it so easy. worked around our schedule so we stayed open the whole time. the space came out looking way better than we expected honestly. definitely calling them back for the next project.",
     author: "Sandra T.",
     initials: "ST",
     location: "Houston",
-    color: "bg-emerald-500",
+    color: "bg-gray-400",
   },
   {
     quote:
-      "Best contractor experience we've had. Fair pricing, no surprises, and the quality speaks for itself.",
+      "Great experience all around. fair price, showed up on time, and the quality was solid. our kitchen and bathroom look completely different now. would recommend to anyone in the area.",
     author: "David & Maria L.",
     initials: "DM",
     location: "Manor",
-    color: "bg-amber-500",
+    color: "bg-gray-400",
   },
 ];
 

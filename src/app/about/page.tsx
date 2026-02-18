@@ -45,10 +45,10 @@ export default function AboutPage() {
         <Container>
           <ScrollReveal>
             <Breadcrumbs items={[{ label: "About" }]} />
-            <h1 className="font-heading text-4xl font-semibold text-white sm:text-5xl tracking-tight">
+            <h1 className="font-heading text-3xl font-semibold text-white sm:text-4xl lg:text-5xl tracking-tight">
               About Us
             </h1>
-            <p className="mt-4 text-xl text-gray-300 max-w-2xl">
+            <p className="mt-4 text-base sm:text-xl text-gray-300 max-w-2xl">
               20+ years of craftsmanship. One standard of excellence.
             </p>
           </ScrollReveal>
@@ -74,10 +74,10 @@ export default function AboutPage() {
 
             {/* Text */}
             <ScrollReveal delay={100}>
-              <h2 className="font-heading text-3xl font-bold text-primary mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary mb-6">
                 Real People. Real Work. Real Results.
               </h2>
-              <div className="prose prose-lg text-text-muted space-y-5">
+              <div className="prose prose-base sm:prose-lg text-text-muted space-y-4 sm:space-y-5">
                 <p>
                   When you reach out to us, you&apos;re talking directly to the
                   people who will actually be working on your project. That
@@ -112,10 +112,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Text */}
             <ScrollReveal>
-              <h2 className="font-heading text-3xl font-bold text-primary mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary mb-6">
                 The Crew Behind Every Project
               </h2>
-              <div className="prose prose-lg text-text-muted space-y-5">
+              <div className="prose prose-base sm:prose-lg text-text-muted space-y-4 sm:space-y-5">
                 <p>
                   This is what a typical day looks like for us. Sleeves rolled
                   up, scaffolding out, and the whole team working together to

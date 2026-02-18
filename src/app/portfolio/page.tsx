@@ -19,10 +19,10 @@ export default function PortfolioPage() {
         <Container>
           <ScrollReveal>
             <Breadcrumbs items={[{ label: "Portfolio" }]} />
-            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
               Our Work
             </h1>
-            <p className="mt-4 text-xl text-gray-300 max-w-2xl">
+            <p className="mt-4 text-base sm:text-xl text-gray-300 max-w-2xl">
               Browse our completed projects across Texas.
             </p>
           </ScrollReveal>

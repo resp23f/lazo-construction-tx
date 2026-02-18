@@ -22,10 +22,10 @@ export default function ServiceDetail({
     <section className={`py-16 ${isAlternate ? "bg-surface" : "bg-background"}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Content */}
             <div className={isAlternate ? "lg:order-2" : ""}>
-              <h2 className="font-heading text-2xl font-bold text-primary sm:text-3xl">
+              <h2 className="font-heading text-xl font-bold text-primary sm:text-2xl lg:text-3xl">
                 {title}
               </h2>
               <p className="mt-4 text-text-muted leading-relaxed">{description}</p>

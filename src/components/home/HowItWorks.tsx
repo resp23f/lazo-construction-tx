@@ -34,7 +34,7 @@ export default function HowItWorks() {
 
             return (
               <ScrollReveal key={step.number} delay={index * 100}>
-                <div className="flex gap-6">
+                <div className="flex gap-4 sm:gap-6">
                   <div className="flex flex-col items-center">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                       <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />

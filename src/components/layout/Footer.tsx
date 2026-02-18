@@ -21,7 +21,7 @@ export default function Footer() {
     <footer className="bg-gray-200 text-text">
       <Container>
         <div className="py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 justify-items-center lg:justify-items-stretch items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 justify-items-center lg:justify-items-stretch items-start">
             {/* Logo & Description */}
             <div className="flex flex-col items-center -mt-6">
               <Link href="/" className="inline-block">
@@ -30,7 +30,7 @@ export default function Footer() {
                   alt="LAZO Construction LLC"
                   width={160}
                   height={50}
-                  className="h-40 w-auto"
+                  className="h-28 sm:h-40 w-auto"
                 />
               </Link>
               <p className="font-heading text-text-muted text-xs italic -mt-3">
@@ -88,7 +88,7 @@ export default function Footer() {
                 <li>
                   <a href="mailto:info@lazoconstructiontx.com" className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm">
                     <Mail className="h-4 w-4 flex-shrink-0" strokeWidth={2} />
-                    <span>info@lazoconstructiontx.com</span>
+                    <span className="break-all sm:break-normal">info@lazoconstructiontx.com</span>
                   </a>
                 </li>
               </ul>

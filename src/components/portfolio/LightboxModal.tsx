@@ -57,28 +57,28 @@ export default function LightboxModal({
       {/* Navigation - Previous */}
       {currentIndex > 0 && (
         <button
-          onClick={onPrev}
-          className="absolute left-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+          onClick={(e) => { e.stopPropagation(); onPrev(); }}
+          className="absolute left-2 sm:left-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
           aria-label="Previous image"
         >
-          <ChevronLeft className="h-10 w-10" strokeWidth={2} />
+          <ChevronLeft className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={2} />
         </button>
       )}
 
       {/* Navigation - Next */}
       {currentIndex < totalImages - 1 && (
         <button
-          onClick={onNext}
-          className="absolute right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          className="absolute right-2 sm:right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
           aria-label="Next image"
         >
-          <ChevronRight className="h-10 w-10" strokeWidth={2} />
+          <ChevronRight className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={2} />
         </button>
       )}
 
       {/* Image */}
-      <div className="relative max-w-5xl w-full max-h-[85vh] mx-4 cursor-default" onClick={(e) => e.stopPropagation()}>
-        <div className="relative w-full h-[85vh]">
+      <div className="relative max-w-5xl w-full max-h-[80vh] sm:max-h-[85vh] mx-2 sm:mx-4 cursor-default" onClick={(e) => e.stopPropagation()}>
+        <div className="relative w-full h-[75vh] sm:h-[85vh]">
           <Image
             src={imageSrc}
             alt={imageAlt}

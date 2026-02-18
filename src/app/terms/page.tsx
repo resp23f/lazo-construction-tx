@@ -16,7 +16,7 @@ export default function TermsPage() {
         <Container>
           <ScrollReveal>
             <Breadcrumbs items={[{ label: "Terms and Conditions" }]} />
-            <h1 className="font-heading text-4xl font-semibold text-white sm:text-5xl tracking-tight">
+            <h1 className="font-heading text-3xl font-semibold text-white sm:text-4xl lg:text-5xl tracking-tight">
               Terms and Conditions
             </h1>
           </ScrollReveal>

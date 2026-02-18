@@ -22,12 +22,12 @@ export default function CTABanner({
   const { t } = useLanguage();
 
   return (
-    <section className="bg-primary py-16">
+    <section className="bg-primary py-10 sm:py-16">
       <Container>
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
-              <h2 className="font-heading text-3xl font-bold text-white">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white">
                 {headline || t("cta.heading")}
               </h2>
               <p className="mt-2 text-gray-300">{subtext || t("cta.subtitle")}</p>
@@ -36,14 +36,14 @@ export default function CTABanner({
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Button
                 href={buttonHref}
-                className="min-w-[160px] bg-white text-primary hover:bg-gray-100"
+                className="min-w-[140px] sm:min-w-[160px] bg-white text-primary hover:bg-gray-100"
               >
                 {buttonText || t("cta.getInTouch")}
               </Button>
               <Button
                 href="tel:+12814066787"
                 variant="outline"
-                className="min-w-[160px] border-white text-white hover:bg-white hover:text-primary"
+                className="min-w-[140px] sm:min-w-[160px] border-white text-white hover:bg-white hover:text-primary"
               >
                 <Phone className="h-4 w-4" strokeWidth={2} />
                 {t("cta.callNow")}

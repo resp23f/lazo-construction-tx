@@ -24,6 +24,28 @@ const serviceTypes = [
   "Other",
 ];
 
+function getErrors(formData: { name: string; email: string; phone: string; serviceType: string; message: string }) {
+  const errors: Record<string, string> = {};
+  if (!formData.name.trim()) errors.name = "Please enter your name so we know who to contact.";
+  if (!formData.email.trim()) {
+    errors.email = "We need your email to send you a response.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    errors.email = "That doesn't look like a valid email. Double-check it?";
+  }
+  if (!formData.phone.trim()) {
+    errors.phone = "A phone number helps us reach you faster.";
+  }
+  if (!formData.serviceType) {
+    errors.serviceType = "Let us know what type of service you're looking for.";
+  }
+  if (!formData.message.trim()) {
+    errors.message = formData.serviceType === "Other"
+      ? "Since you selected 'Other', please describe what you need so we can help."
+      : "Tell us a bit about your project so we can help.";
+  }
+  return errors;
+}
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +56,11 @@ export default function ContactForm() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [showErrors, setShowErrors] = useState(false);
   const turnstileRef = useRef<TurnstileInstance>(null);
+
+  const errors = getErrors(formData);
+  const hasErrors = Object.keys(errors).length > 0;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -45,8 +71,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setShowErrors(true);
 
-    if (!turnstileToken) {
+    if (hasErrors || !turnstileToken) {
       return;
     }
 
@@ -71,6 +98,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
+        setShowErrors(false);
         setFormData({
           name: "",
           email: "",
@@ -106,8 +134,15 @@ export default function ContactForm() {
     );
   }
 
+  const inputClass = (field: string) =>
+    `w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition-all ${
+      showErrors && errors[field]
+        ? "border-red-400 focus:border-red-500 focus:ring-red-200"
+        : "border-gray-300 focus:border-primary focus:ring-primary/20"
+    }`;
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
@@ -117,11 +152,13 @@ export default function ContactForm() {
           type="text"
           id="name"
           name="name"
-          required
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
+          className={inputClass("name")}
         />
+        {showErrors && errors.name && (
+          <p className="mt-1.5 text-sm text-red-600">{errors.name}</p>
+        )}
       </div>
 
       {/* Email */}
@@ -133,17 +170,19 @@ export default function ContactForm() {
           type="email"
           id="email"
           name="email"
-          required
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
+          className={inputClass("email")}
         />
+        {showErrors && errors.email && (
+          <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
+        )}
       </div>
 
       {/* Phone */}
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-text mb-2">
-          Phone
+          Phone <span className="text-red-500">*</span>
         </label>
         <input
           type="tel"
@@ -151,21 +190,24 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
+          className={inputClass("phone")}
         />
+        {showErrors && errors.phone && (
+          <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
+        )}
       </div>
 
       {/* Service Type */}
       <div>
         <label htmlFor="serviceType" className="block text-sm font-medium text-text mb-2">
-          Service Type
+          Service Type <span className="text-red-500">*</span>
         </label>
         <select
           id="serviceType"
           name="serviceType"
           value={formData.serviceType}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all bg-white"
+          className={`${inputClass("serviceType")} bg-white`}
         >
           <option value="">Select a service...</option>
           {serviceTypes.map((service) => (
@@ -174,6 +216,9 @@ export default function ContactForm() {
             </option>
           ))}
         </select>
+        {showErrors && errors.serviceType && (
+          <p className="mt-1.5 text-sm text-red-600">{errors.serviceType}</p>
+        )}
       </div>
 
       {/* Message */}
@@ -182,21 +227,23 @@ export default function ContactForm() {
           <label htmlFor="message" className="block text-sm font-medium text-text">
             Project Description <span className="text-red-500">*</span>
           </label>
-          <span className={`text-xs ${formData.message.length > 900 ? 'text-amber-600' : 'text-text-muted'} ${formData.message.length >= 1000 ? 'text-red-500' : ''}`}>
-            {formData.message.length}/1000
+          <span className={`text-xs ${formData.message.length > 250 ? 'text-amber-600' : 'text-text-muted'} ${formData.message.length >= 300 ? 'text-red-500' : ''}`}>
+            {formData.message.length}/300
           </span>
         </div>
         <textarea
           id="message"
           name="message"
-          required
           rows={5}
-          maxLength={1000}
+          maxLength={300}
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your project..."
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none"
+          className={`${inputClass("message")} resize-none`}
         />
+        {showErrors && errors.message && (
+          <p className="mt-1.5 text-sm text-red-600">{errors.message}</p>
+        )}
       </div>
 
       {/* Error Message */}

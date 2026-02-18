@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         <Container>
           <ScrollReveal>
             <Breadcrumbs items={[{ label: "Privacy Policy" }]} />
-            <h1 className="font-heading text-4xl font-semibold text-white sm:text-5xl tracking-tight">
+            <h1 className="font-heading text-3xl font-semibold text-white sm:text-4xl lg:text-5xl tracking-tight">
               Privacy Policy
             </h1>
           </ScrollReveal>

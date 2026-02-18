@@ -60,7 +60,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <ScrollReveal key={index} delay={index * 150}>
-              <div className="bg-surface p-8 rounded-xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+              <div className="bg-surface p-5 sm:p-8 rounded-xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                 <StarRating />
                 <blockquote className="text-text leading-relaxed flex-grow">
                   &ldquo;{testimonial.quote}&rdquo;

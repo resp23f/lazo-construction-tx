@@ -44,7 +44,7 @@ export default function LightboxModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center cursor-pointer" onClick={onClose}>
       {/* Close Button */}
       <button
         onClick={onClose}
@@ -77,7 +77,7 @@ export default function LightboxModal({
       )}
 
       {/* Image */}
-      <div className="relative max-w-5xl w-full max-h-[85vh] mx-4">
+      <div className="relative max-w-5xl w-full max-h-[85vh] mx-4 cursor-default" onClick={(e) => e.stopPropagation()}>
         <div className="relative w-full h-[85vh]">
           <Image
             src={imageSrc}

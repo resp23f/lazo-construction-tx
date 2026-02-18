@@ -29,7 +29,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Two-Tone Herringbone",
     alt: "Kitchen remodel featuring two-tone cabinets and herringbone backsplash",
     category: "Kitchens",
-    image: "/images/portfolio/kitchen-remodel-two-tone-cabinets-herringbone-backsplash.jpg",
+    image: "/images/portfolio/kitchen-remodel-two-tone-green-herringbone-backsplash.jpg",
   },
   {
     id: "3",

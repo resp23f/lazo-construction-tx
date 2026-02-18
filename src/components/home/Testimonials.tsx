@@ -1,7 +1,10 @@
+"use client";
+
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { Star, BadgeCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
@@ -45,11 +48,13 @@ function StarRating() {
 }
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 bg-gradient-to-b from-slate-100/50 via-indigo-50/30 to-slate-200/60">
       <Container>
         <ScrollReveal>
-          <SectionHeading title="What Our Clients Say" />
+          <SectionHeading title={t("testimonials.heading")} />
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

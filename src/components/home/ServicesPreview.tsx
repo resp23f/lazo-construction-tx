@@ -1,78 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import {
-  ChefHat,
-  Bath,
-  Home,
-  Paintbrush,
-  Building2,
-  Hammer,
-} from "lucide-react";
-
-const services = [
-  {
-    title: "Kitchen Remodels",
-    description:
-      "Complete kitchen renovations with custom cabinetry and modern finishes.",
-    href: "/services/residential",
-    icon: ChefHat,
-  },
-  {
-    title: "Bathroom Remodels",
-    description:
-      "Transform your bathroom with new tile, fixtures, and layouts.",
-    href: "/services/residential",
-    icon: Bath,
-  },
-  {
-    title: "Room Additions",
-    description:
-      "Expand your living space with seamless home additions.",
-    href: "/services/residential",
-    icon: Home,
-  },
-  {
-    title: "Interior & Exterior Painting",
-    description:
-      "Professional painting services that protect and beautify.",
-    href: "/services/residential",
-    icon: Paintbrush,
-  },
-  {
-    title: "Commercial Remodeling",
-    description:
-      "Retail, restaurant, and office renovations with minimal disruption.",
-    href: "/services/commercial",
-    icon: Building2,
-  },
-  {
-    title: "Commercial Build-Outs",
-    description:
-      "Transform shell spaces into functional business environments.",
-    href: "/services/commercial",
-    icon: Hammer,
-  },
-];
+import { ChefHat, Bath, Home, Paintbrush } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServicesPreview() {
+  const { t } = useLanguage();
+
+  const services = [
+    { titleKey: "services.residential.title", descKey: "services.residential.description", href: "/services/residential", icon: ChefHat },
+    { titleKey: "services.painting.title", descKey: "services.painting.description", href: "/services/residential", icon: Bath },
+    { titleKey: "services.commercial.title", descKey: "services.commercial.description", href: "/services/commercial", icon: Home },
+    { titleKey: "services.buildouts.title", descKey: "services.buildouts.description", href: "/services/commercial", icon: Paintbrush },
+  ];
+
   return (
     <section className="py-20 bg-gradient-to-b from-white via-white to-blue-50/50">
       <Container>
         <ScrollReveal>
           <SectionHeading
-            title="Our Services"
-            subtitle="From residential renovations to commercial build-outs, we deliver quality construction across Texas."
+            title={t("services.heading")}
+            subtitle={t("services.subtitle")}
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <ScrollReveal key={service.title} delay={index * 100}>
+              <ScrollReveal key={service.titleKey} delay={index * 100}>
                 <Link
                   href={service.href}
                   className="group block bg-background p-6 rounded-xl border border-gray-100 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
@@ -82,10 +42,10 @@ export default function ServicesPreview() {
                     strokeWidth={1.5}
                   />
                   <h3 className="font-heading font-bold text-lg text-text group-hover:text-primary transition-colors">
-                    {service.title}
+                    {t(service.titleKey)}
                   </h3>
                   <p className="mt-2 text-text-muted text-sm">
-                    {service.description}
+                    {t(service.descKey)}
                   </p>
                 </Link>
               </ScrollReveal>
@@ -93,10 +53,10 @@ export default function ServicesPreview() {
           })}
         </div>
 
-        <ScrollReveal delay={600}>
+        <ScrollReveal delay={500}>
           <div className="mt-12 text-center">
             <Button href="/services" variant="outline">
-              View All Services
+              {t("services.viewAll")}
             </Button>
           </div>
         </ScrollReveal>

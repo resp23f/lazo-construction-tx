@@ -15,14 +15,14 @@ const residentialServices = [
   {
     title: "Kitchen Remodels",
     description:
-      "From complete gut renovations to cabinet refacing and countertop upgrades, we create kitchens that combine functionality with style. Custom cabinetry, modern appliances, quality finishes.",
+      "Complete gut renovations, cabinet refacing, countertop upgrades, backsplash installation, and custom island builds. We work with you on layout, materials, and finishes to build a kitchen that fits how you actually use it.",
     image: "/images/services/484969749_947128020969500_2323297012010999311_n.jpg",
     imageAlt: "LAZO Construction kitchen remodel",
   },
   {
     title: "Bathroom Remodels",
     description:
-      "Update your bathroom with new tile, fixtures, vanities, and layouts. We handle everything from powder room refreshes to full master bath transformations.",
+      "New tile, updated fixtures, custom vanities, walk in showers, and full layout changes. Whether it's a small powder room refresh or a complete master bath gut, we handle the plumbing coordination, waterproofing, and finish work.",
     image: "/images/services/484865923_947127760969526_4508615055210071457_n-2.jpg",
     imageAlt: "LAZO Construction bathroom remodel",
     imagePosition: "center 70%",
@@ -30,28 +30,28 @@ const residentialServices = [
   {
     title: "Room Additions",
     description:
-      "Need more space? We build seamless additions that match your existing home. Extra bedrooms, home offices, sunrooms, or expanded living areas.",
+      "When you need more space, we build additions that blend with your existing home. Extra bedrooms, home offices, sunrooms, and expanded living areas. We handle foundation, framing, roofing tie ins, and all interior finishes so the new space feels like it was always there.",
     image: "/images/services/residential-steel-framing-construction.jpeg",
     imageAlt: "LAZO Construction room addition with steel framing in progress",
   },
   {
     title: "Interior & Exterior Painting",
     description:
-      "Professional painting services that protect and beautify. Proper prep, premium paints, clean lines, and lasting results inside and out.",
+      "Full interior and exterior painting for homes of all sizes. We take prep seriously, including pressure washing, scraping, caulking, and priming, so the finish lasts. We use premium paints and keep clean lines on trim, ceilings, and accent walls.",
     image: "/images/services/C403DB6B-70D3-4597-8116-265B0F9FDF5E.jpeg",
     imageAlt: "LAZO Construction interior and exterior painting",
   },
   {
     title: "Drywall Installation & Repair",
     description:
-      "New construction drywall, repairs, texturing, and finishing. Smooth walls, sharp corners, ready for paint.",
+      "New construction hanging, taping, and finishing as well as patch repairs, water damage restoration, and retexturing. We deliver smooth walls, clean corners, and surfaces that are ready for paint or wallpaper.",
     image: "/images/services/residential-framing-fireplace-rough-in.jpeg",
     imageAlt: "LAZO Construction drywall and framing rough-in with ductwork",
   },
   {
     title: "General Residential Remodeling",
     description:
-      "Full-home renovations, flooring, trim work, and everything in between. One contractor for your entire project.",
+      "Full-home renovations, flooring installation, trim and baseboard work, door replacements, and everything in between. One crew, one point of contact, and a clean jobsite from start to finish.",
     image: "/images/services/483852313_944698671212435_2053494467076279386_n-2.jpg",
     imageAlt: "LAZO Construction general residential remodeling",
   },

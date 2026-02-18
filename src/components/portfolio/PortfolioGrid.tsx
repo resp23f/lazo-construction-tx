@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import FilterBar from "./FilterBar";
@@ -239,15 +239,13 @@ export default function PortfolioGrid() {
   const searchParams = useSearchParams();
   const filterParam = searchParams.get("filter");
 
-  const [activeCategory, setActiveCategory] = useState("All");
+  const initialCategory = useMemo(() => {
+    return filterParam && categories.includes(filterParam) ? filterParam : "All";
+  }, [filterParam]);
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    if (filterParam && categories.includes(filterParam)) {
-      setActiveCategory(filterParam);
-    }
-  }, [filterParam]);
 
   const filteredItems =
     activeCategory === "All"

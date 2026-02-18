@@ -7,19 +7,21 @@ import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import Button from "@/components/ui/Button";
 import { Menu, Phone } from "lucide-react";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { href: "/", label: t("nav.home") },
+    { href: "/services", label: t("nav.services") },
+    { href: "/portfolio", label: t("nav.portfolio") },
+    { href: "/about", label: t("nav.about") },
+    { href: "/contact", label: t("nav.contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,24 +75,73 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Desktop CTAs */}
+            {/* Desktop CTAs + Language Toggle */}
             <div className="hidden lg:flex items-center gap-4">
+              {/* Language Toggle */}
+              <div className="flex items-center border border-gray-200 rounded-full overflow-hidden text-xs font-semibold">
+                <button
+                  onClick={() => setLang("en")}
+                  className={`px-3 py-1.5 transition-colors ${
+                    lang === "en"
+                      ? "bg-primary text-white"
+                      : "text-text-muted hover:text-text"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("es")}
+                  className={`px-3 py-1.5 transition-colors ${
+                    lang === "es"
+                      ? "bg-primary text-white"
+                      : "text-text-muted hover:text-text"
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
+
               <Button variant="outline" href="tel:+12814066787">
                 <Phone className="h-4 w-4" strokeWidth={2} />
-                Call Now
+                {t("nav.callNow")}
               </Button>
-              <Button href="/contact">Get a Quote</Button>
+              <Button href="/contact">{t("nav.getAQuote")}</Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              type="button"
-              className="lg:hidden p-2 text-text"
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" strokeWidth={2} />
-            </button>
+            {/* Mobile: Language Toggle + Menu Button */}
+            <div className="lg:hidden flex items-center gap-3">
+              <div className="flex items-center border border-gray-200 rounded-full overflow-hidden text-xs font-semibold">
+                <button
+                  onClick={() => setLang("en")}
+                  className={`px-2.5 py-1 transition-colors ${
+                    lang === "en"
+                      ? "bg-primary text-white"
+                      : "text-text-muted hover:text-text"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("es")}
+                  className={`px-2.5 py-1 transition-colors ${
+                    lang === "es"
+                      ? "bg-primary text-white"
+                      : "text-text-muted hover:text-text"
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
+
+              <button
+                type="button"
+                className="p-2 text-text"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <Menu className="h-6 w-6" strokeWidth={2} />
+              </button>
+            </div>
           </div>
         </Container>
 

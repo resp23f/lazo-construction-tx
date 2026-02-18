@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Our Services | LAZO Construction LLC | Texas Contractor",
   description:
-    "From kitchen remodels to commercial build-outs, we deliver quality construction across Texas. Residential and commercial services available.",
+    "From kitchen remodels to commercial build outs, we deliver quality construction across Texas. Residential and commercial services available.",
 };
 
 export default function ServicesPage() {
@@ -23,7 +23,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="mt-4 text-xl text-gray-300 max-w-2xl">
-              From kitchen remodels to commercial build-outs, we deliver quality
+              From kitchen remodels to commercial build outs, we deliver quality
               construction across Texas.
             </p>
           </ScrollReveal>
@@ -46,7 +46,7 @@ export default function ServicesPage() {
             <ScrollReveal delay={150}>
               <ServiceCard
                 title="Commercial Services"
-                description="Office build-outs, retail renovations, commercial painting, and more."
+                description="Office build outs, retail renovations, commercial painting, and more."
                 href="/services/commercial"
                 image="/images/portfolio/commercial-retail-storefront-buildout-string-lights.jpeg"
                 imageAlt="LAZO Construction commercial retail storefront build-out"

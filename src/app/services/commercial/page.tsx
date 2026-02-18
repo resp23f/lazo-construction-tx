@@ -15,22 +15,30 @@ const commercialServices = [
   {
     title: "Commercial Remodeling",
     description:
-      "Retail spaces, restaurants, offices — we renovate commercial properties with minimal disruption to your operations. Experienced with tenant improvements and code compliance.",
+      "Retail spaces, restaurants, offices. We renovate commercial properties with minimal disruption to your operations. Experienced with tenant improvements and code compliance.",
+    image: "/images/services/commercial-drywall-installation-scissor-lift.jpeg",
+    imageAlt: "LAZO Construction commercial remodeling with scissor lift installation",
   },
   {
     title: "Commercial Build-Outs",
     description:
       "Transform shell spaces into functional business environments. From initial layout to final finishes, we manage the entire build-out process.",
+    image: "/images/services/commercial-shell-space-ductwork-buildout.jpeg",
+    imageAlt: "LAZO Construction commercial shell space build-out with exposed ductwork and custom lighting",
   },
   {
     title: "Commercial Painting",
     description:
       "Interior and exterior painting for commercial properties. We work around your schedule to keep your business running.",
+    image: "/images/services/506797904_3239200806219792_6705470354640155428_n.jpg",
+    imageAlt: "LAZO Construction commercial painting project",
   },
   {
     title: "Commercial Drywall",
     description:
       "Large-scale drywall installation for commercial projects. Metal framing, fire-rated assemblies, acoustic treatments.",
+    image: "/images/services/commercial-hallway-drywall-finish.jpeg",
+    imageAlt: "LAZO Construction commercial hallway drywall finish",
   },
 ];
 
@@ -63,6 +71,8 @@ export default function CommercialServicesPage() {
           key={service.title}
           title={service.title}
           description={service.description}
+          image={service.image}
+          imageAlt={service.imageAlt}
           isAlternate={index % 2 === 1}
         />
       ))}

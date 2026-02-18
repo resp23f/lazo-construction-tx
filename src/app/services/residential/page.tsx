@@ -16,31 +16,44 @@ const residentialServices = [
     title: "Kitchen Remodels",
     description:
       "From complete gut renovations to cabinet refacing and countertop upgrades, we create kitchens that combine functionality with style. Custom cabinetry, modern appliances, quality finishes.",
+    image: "/images/services/484969749_947128020969500_2323297012010999311_n.jpg",
+    imageAlt: "LAZO Construction kitchen remodel",
   },
   {
     title: "Bathroom Remodels",
     description:
       "Update your bathroom with new tile, fixtures, vanities, and layouts. We handle everything from powder room refreshes to full master bath transformations.",
+    image: "/images/services/484865923_947127760969526_4508615055210071457_n-2.jpg",
+    imageAlt: "LAZO Construction bathroom remodel",
+    imagePosition: "center 70%",
   },
   {
     title: "Room Additions",
     description:
-      "Need more space? We build seamless additions that match your existing home — extra bedrooms, home offices, sunrooms, or expanded living areas.",
+      "Need more space? We build seamless additions that match your existing home. Extra bedrooms, home offices, sunrooms, or expanded living areas.",
+    image: "/images/services/residential-steel-framing-construction.jpeg",
+    imageAlt: "LAZO Construction room addition with steel framing in progress",
   },
   {
     title: "Interior & Exterior Painting",
     description:
       "Professional painting services that protect and beautify. Proper prep, premium paints, clean lines, and lasting results inside and out.",
+    image: "/images/services/C403DB6B-70D3-4597-8116-265B0F9FDF5E.jpeg",
+    imageAlt: "LAZO Construction interior and exterior painting",
   },
   {
     title: "Drywall Installation & Repair",
     description:
       "New construction drywall, repairs, texturing, and finishing. Smooth walls, sharp corners, ready for paint.",
+    image: "/images/services/residential-framing-fireplace-rough-in.jpeg",
+    imageAlt: "LAZO Construction drywall and framing rough-in with ductwork",
   },
   {
     title: "General Residential Remodeling",
     description:
       "Full-home renovations, flooring, trim work, and everything in between. One contractor for your entire project.",
+    image: "/images/services/483852313_944698671212435_2053494467076279386_n-2.jpg",
+    imageAlt: "LAZO Construction general residential remodeling",
   },
 ];
 
@@ -74,6 +87,9 @@ export default function ResidentialServicesPage() {
           key={service.title}
           title={service.title}
           description={service.description}
+          image={service.image}
+          imageAlt={service.imageAlt}
+          imagePosition={service.imagePosition}
           isAlternate={index % 2 === 1}
         />
       ))}

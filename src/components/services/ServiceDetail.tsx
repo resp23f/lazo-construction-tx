@@ -1,15 +1,22 @@
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface ServiceDetailProps {
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
   isAlternate?: boolean;
+  imagePosition?: string;
 }
 
 export default function ServiceDetail({
   title,
   description,
+  image,
+  imageAlt,
   isAlternate = false,
+  imagePosition = "center",
 }: ServiceDetailProps) {
   return (
     <section className={`py-16 ${isAlternate ? "bg-surface" : "bg-background"}`}>
@@ -24,10 +31,17 @@ export default function ServiceDetail({
               <p className="mt-4 text-text-muted leading-relaxed">{description}</p>
             </div>
 
-            {/* Placeholder Image */}
+            {/* Image */}
             <div className={isAlternate ? "lg:order-1" : ""}>
-              <div className="aspect-video bg-gray-200 rounded-xl flex items-center justify-center border border-gray-300">
-                <span className="text-text-muted text-sm">{title}</span>
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-md">
+                <Image
+                  src={image}
+                  alt={imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  style={{ objectPosition: imagePosition }}
+                />
               </div>
             </div>
           </div>

@@ -1,27 +1,35 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
   description: string;
   href: string;
-  imageAlt?: string;
+  image: string;
+  imageAlt: string;
 }
 
 export default function ServiceCard({
   title,
   description,
   href,
+  image,
   imageAlt,
 }: ServiceCardProps) {
   return (
     <Link
       href={href}
-      className="group block bg-surface border border-gray-100 hover:border-primary hover:shadow-lg transition-all"
+      className="group block bg-surface border border-gray-100 hover:border-primary hover:shadow-lg transition-all rounded-xl overflow-hidden"
     >
-      {/* Placeholder Image */}
-      <div className="aspect-video bg-gray-200 flex items-center justify-center">
-        <span className="text-text-muted text-sm">{imageAlt || title}</span>
+      <div className="relative aspect-video overflow-hidden">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
       </div>
 
       <div className="p-6">

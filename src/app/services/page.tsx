@@ -39,7 +39,8 @@ export default function ServicesPage() {
                 title="Residential Services"
                 description="Kitchen remodels, bathroom renovations, room additions, and more."
                 href="/services/residential"
-                imageAlt="Residential construction"
+                image="/images/services/residential-exterior-courtyard-landscaping.jpeg"
+                imageAlt="LAZO Construction residential exterior with courtyard"
               />
             </ScrollReveal>
             <ScrollReveal delay={150}>
@@ -47,7 +48,8 @@ export default function ServicesPage() {
                 title="Commercial Services"
                 description="Office build-outs, retail renovations, commercial painting, and more."
                 href="/services/commercial"
-                imageAlt="Commercial construction"
+                image="/images/portfolio/commercial-retail-storefront-buildout-string-lights.jpeg"
+                imageAlt="LAZO Construction commercial retail storefront build-out"
               />
             </ScrollReveal>
           </div>

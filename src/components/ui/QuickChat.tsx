@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, CheckCircle } from "lucide-react";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { useLanguage } from "@/context/LanguageContext";
@@ -24,9 +24,19 @@ export default function QuickChat() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const isContactPage = pathname === "/contact";
 
-  // Hide on /contact page
-  if (pathname === "/contact") return null;
+  // Lock body scroll when panel is open
+  useEffect(() => {
+    if (isOpen && !isContactPage) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [isOpen, isContactPage]);
+
+  if (isContactPage) return null;
 
   const errors: Record<string, string> = {};
   if (!formData.name.trim()) errors.name = t("quickChat.errName");
@@ -96,6 +106,14 @@ export default function QuickChat() {
         )}
       </button>
 
+      {/* Frosted backdrop */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-all duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={handleClose}
+      />
+
       {/* Chat Panel */}
       <div
         ref={panelRef}
@@ -107,23 +125,25 @@ export default function QuickChat() {
             : "opacity-0 scale-95 translate-y-4 pointer-events-none"
         }`}
       >
+        {/* Accent stripe */}
+        <div className="h-1 bg-primary" />
         {/* Header */}
-        <div className="bg-primary px-4 py-3 sm:px-5 sm:py-4">
+        <div className="bg-white px-4 py-3 sm:px-5 sm:py-4 border-b border-gray-200">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
               <MessageCircle className="h-5 w-5 text-white" strokeWidth={2} />
             </div>
             <div>
-              <h3 className="text-white font-heading font-bold text-sm">
+              <h3 className="text-text font-heading font-bold text-sm">
                 {t("quickChat.title")}
               </h3>
-              <p className="text-white/70 text-xs">{t("quickChat.subtitle")}</p>
+              <p className="text-text-muted text-xs">{t("quickChat.subtitle")}</p>
             </div>
           </div>
         </div>
 
         {/* Body */}
-        <div className="p-4 sm:p-5 overflow-y-auto">
+        <div className="p-4 sm:p-5 overflow-y-auto overscroll-contain">
           {status === "success" ? (
             <div className="text-center py-8">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 mb-4">
@@ -203,7 +223,7 @@ export default function QuickChat() {
                 </p>
               )}
 
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex flex-col items-center gap-3 max-w-[260px] mx-auto">
                 <Turnstile
                   ref={turnstileRef}
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}

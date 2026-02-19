@@ -7,6 +7,7 @@ import QuickChat from "@/components/ui/QuickChat";
 import ConsoleSuppressor from "@/components/ui/ConsoleSuppressor";
 import Providers from "@/components/Providers";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import LocalBusinessJsonLd from "@/components/seo/LocalBusinessJsonLd";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -15,9 +16,28 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
+  metadataBase: new URL("https://www.lazoconstructiontx.com"),
+  alternates: {
+    canonical: "/",
+  },
+  title: {
+    default: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
+    template: "%s | LAZO Construction LLC",
+  },
   description:
     "Professional residential and commercial construction services in Austin, Houston, and Central Texas. Kitchen remodels, bathroom renovations, commercial build outs. 20+ years experience.",
+  keywords: [
+    "construction contractor Texas",
+    "residential remodeling Austin",
+    "commercial contractor Houston",
+    "kitchen remodel Texas",
+    "bathroom renovation Austin",
+    "commercial build out Houston",
+    "general contractor Central Texas",
+    "LAZO Construction",
+    "home renovation Texas",
+    "commercial painting Texas",
+  ],
   openGraph: {
     title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
     description:
@@ -26,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "LAZO Construction LLC",
     images: [
       {
-        url: "https://www.lazoconstructiontx.com/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "LAZO Construction LLC - Residential & Commercial Contractor in Texas",
@@ -40,7 +60,7 @@ export const metadata: Metadata = {
     title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
     description:
       "Professional residential and commercial construction services in Austin, Houston, and Central Texas.",
-    images: ["https://www.lazoconstructiontx.com/og-image.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
@@ -65,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <LocalBusinessJsonLd />
+      </head>
       <body
         className={`${poppins.variable} antialiased flex flex-col min-h-screen`}
       >

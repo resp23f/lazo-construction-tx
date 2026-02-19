@@ -339,7 +339,7 @@ const translations: Record<Language, Record<string, unknown>> = {
       getAQuote: "Cotización",
     },
     hero: {
-      title: "Tu Visión, Nuestro Oficio.",
+      title: "Su Visión, Nuestro Oficio.",
       subtitle: "De remodelaciones de cocina a proyectos comerciales, damos vida a su visión con trabajo experto y precios honestos.",
       cta: "Estimado Gratis",
       secondary: "Ver Trabajos",
@@ -441,7 +441,7 @@ const translations: Record<Language, Record<string, unknown>> = {
       ctaButton: "Contáctenos",
       kitchen: {
         title: "Remodelación de Cocina",
-        description: "Renovaciones completas, refacción de gabinetes, mejoras de encimeras, instalación de salpicaderos y construcción de islas. Trabajamos con usted en diseño, materiales y acabados para crear una cocina funcional.",
+        description: "Renovaciones completas, renovación de gabinetes, mejoras de encimeras, instalación de salpicaderos y construcción de islas. Trabajamos con usted en diseño, materiales y acabados para crear una cocina funcional.",
       },
       bathroom: {
         title: "Remodelación de Baño",

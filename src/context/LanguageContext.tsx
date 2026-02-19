@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "en" | "es";
 
@@ -13,13 +13,15 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("lazo-lang") as Language | null;
-      if (saved === "en" || saved === "es") return saved;
-    }
-    return "en";
-  });
+  const [lang, setLang] = useState<Language>("en");
+  const [mounted, setMounted] = useState(false);
+
+  // Read saved language after hydration to avoid EN → ES flash
+  useEffect(() => {
+    const saved = localStorage.getItem("lazo-lang") as Language | null;
+    if (saved === "en" || saved === "es") setLang(saved);
+    setMounted(true);
+  }, []);
 
   const handleSetLang = (newLang: Language) => {
     setLang(newLang);
@@ -42,7 +44,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return (
     <LanguageContext.Provider value={{ lang, setLang: handleSetLang, t }}>
-      {children}
+      <div
+        className={`transition-opacity duration-150 ${mounted ? "opacity-100" : "opacity-0"}`}
+      >
+        {children}
+      </div>
     </LanguageContext.Provider>
   );
 }

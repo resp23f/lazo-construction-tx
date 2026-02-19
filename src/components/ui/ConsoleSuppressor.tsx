@@ -14,10 +14,6 @@ export default function ConsoleSuppressor() {
     console.warn = noop;
     // Keep console.error for critical debugging if needed
 
-    // Disable right-click context menu
-    const preventContext = (e: MouseEvent) => e.preventDefault();
-    document.addEventListener("contextmenu", preventContext);
-
     // Disable common devtools shortcuts
     const preventDevtools = (e: KeyboardEvent) => {
       // F12
@@ -34,7 +30,6 @@ export default function ConsoleSuppressor() {
     document.addEventListener("keydown", preventDevtools);
 
     return () => {
-      document.removeEventListener("contextmenu", preventContext);
       document.removeEventListener("keydown", preventDevtools);
     };
   }, []);

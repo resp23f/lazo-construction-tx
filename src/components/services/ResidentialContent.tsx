@@ -14,13 +14,13 @@ export default function ResidentialContent() {
     {
       titleKey: "residentialPage.kitchen.title",
       descKey: "residentialPage.kitchen.description",
-      image: "/images/services/484969749_947128020969500_2323297012010999311_n.jpg",
+      image: "/images/services/kitchen-remodel-white-cabinets-herringbone.jpg",
       imageAlt: "LAZO Construction kitchen remodel",
     },
     {
       titleKey: "residentialPage.bathroom.title",
       descKey: "residentialPage.bathroom.description",
-      image: "/images/services/484865923_947127760969526_4508615055210071457_n-2.jpg",
+      image: "/images/services/bathroom-remodel-tile-vanity.jpg",
       imageAlt: "LAZO Construction bathroom remodel",
       imagePosition: "center 70%",
     },
@@ -33,7 +33,7 @@ export default function ResidentialContent() {
     {
       titleKey: "residentialPage.painting.title",
       descKey: "residentialPage.painting.description",
-      image: "/images/services/C403DB6B-70D3-4597-8116-265B0F9FDF5E.jpeg",
+      image: "/images/services/residential-exterior-painting-crew.jpeg",
       imageAlt: "LAZO Construction interior and exterior painting",
     },
     {
@@ -45,7 +45,7 @@ export default function ResidentialContent() {
     {
       titleKey: "residentialPage.general.title",
       descKey: "residentialPage.general.description",
-      image: "/images/services/483852313_944698671212435_2053494467076279386_n-2.jpg",
+      image: "/images/services/residential-general-remodel-flooring.jpg",
       imageAlt: "LAZO Construction general residential remodeling",
     },
   ];

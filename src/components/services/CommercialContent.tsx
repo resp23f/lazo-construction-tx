@@ -26,7 +26,7 @@ export default function CommercialContent() {
     {
       titleKey: "commercialPage.painting.title",
       descKey: "commercialPage.painting.description",
-      image: "/images/services/506797904_3239200806219792_6705470354640155428_n.jpg",
+      image: "/images/services/commercial-painting-crew-project.jpg",
       imageAlt: "LAZO Construction commercial painting project",
     },
     {

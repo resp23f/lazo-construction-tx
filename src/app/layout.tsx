@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import QuickChat from "@/components/ui/QuickChat";
 import ConsoleSuppressor from "@/components/ui/ConsoleSuppressor";
 import Providers from "@/components/Providers";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import PageTransition from "@/components/ui/PageTransition";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -45,7 +47,10 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          <main className="flex-1 flex flex-col">{children}</main>
+          <ScrollToTop />
+          <main className="flex-1 flex flex-col">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
           <QuickChat />
           <ConsoleSuppressor />

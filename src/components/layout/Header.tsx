@@ -6,7 +6,7 @@ import Image from "next/image";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import Button from "@/components/ui/Button";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
@@ -27,7 +27,9 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY < 100) {
+      if (mobileMenuOpen) {
+        setIsVisible(true);
+      } else if (currentScrollY < 100) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY) {
         setIsVisible(false);
@@ -40,11 +42,12 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, mobileMenuOpen]);
 
   return (
+    <>
     <header
-      className={`bg-surface border-b border-gray-100 sticky top-0 z-50 transition-transform duration-300 ${
+      className={`bg-surface border-b border-gray-100 sticky top-0 z-[70] transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -136,21 +139,27 @@ export default function Header() {
               <button
                 type="button"
                 className="p-2 text-text"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open menu"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                <Menu className="h-6 w-6" strokeWidth={2} />
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" strokeWidth={2} />
+                ) : (
+                  <Menu className="h-6 w-6" strokeWidth={2} />
+                )}
               </button>
             </div>
           </div>
         </Container>
 
-        {/* Mobile Menu */}
-        <MobileMenu
-          isOpen={mobileMenuOpen}
-          onClose={() => setMobileMenuOpen(false)}
-          navLinks={navLinks}
-        />
     </header>
+
+    {/* Mobile Menu — outside header to escape stacking context */}
+    <MobileMenu
+      isOpen={mobileMenuOpen}
+      onClose={() => setMobileMenuOpen(false)}
+      navLinks={navLinks}
+    />
+    </>
   );
 }

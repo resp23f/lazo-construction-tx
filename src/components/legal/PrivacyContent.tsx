@@ -12,9 +12,9 @@ export default function PrivacyContent() {
     <>
       <LegalPageHeader titleEn="Privacy Policy" titleEs="Política de Privacidad" />
 
-      <section className="py-20 bg-surface">
+      <section className="py-12 sm:py-20 bg-surface">
         <Container>
-          <div className="max-w-3xl mx-auto prose prose-lg">
+          <div className="max-w-3xl mx-auto prose prose-sm sm:prose-lg">
             <p className="text-text-body text-sm">
               {es ? "Última actualización: 15 de enero de 2026" : "Last Updated: January 15, 2026"}
             </p>
@@ -35,7 +35,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 1 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "1. Alcance, Intención y Aplicabilidad" : "1. Scope, Intent, and Applicability"}
             </h2>
             <p className="text-text-body">
@@ -55,10 +55,10 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 2 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "2. Categorías de Información que Recopilamos" : "2. Categories of Information We Collect"}
             </h2>
-            <h3 className="font-heading font-semibold text-xl text-text-body mt-6 mb-3">
+            <h3 className="font-heading font-semibold text-base sm:text-xl text-text-body mt-5 sm:mt-6 mb-2 sm:mb-3">
               {es ? "2.1 Información Proporcionada Voluntariamente por Usted" : "2.1 Information Voluntarily Provided by You"}
             </h3>
             <p className="text-text-body">
@@ -81,7 +81,7 @@ export default function PrivacyContent() {
                 : "You acknowledge that any information you submit is provided at your own discretion and risk. You are solely responsible for ensuring the accuracy and completeness of submitted information."}
             </p>
 
-            <h3 className="font-heading font-semibold text-xl text-text-body mt-6 mb-3">
+            <h3 className="font-heading font-semibold text-base sm:text-xl text-text-body mt-5 sm:mt-6 mb-2 sm:mb-3">
               {es ? "2.2 Información Técnica y de Uso Recopilada Automáticamente" : "2.2 Automatically Collected Technical and Usage Information"}
             </h3>
             <p className="text-text-body">
@@ -103,7 +103,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 3 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "3. Cookies, Análisis y Tecnologías de Seguimiento" : "3. Cookies, Analytics, and Tracking Technologies"}
             </h2>
             <p className="text-text-body">
@@ -123,7 +123,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 4 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "4. Propósito y Uso de la Información Recopilada" : "4. Purpose and Use of Collected Information"}
             </h2>
             <p className="text-text-body">
@@ -148,10 +148,10 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 5 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "5. Divulgación y Compartición de Información" : "5. Disclosure and Sharing of Information"}
             </h2>
-            <h3 className="font-heading font-semibold text-xl text-text-body mt-6 mb-3">
+            <h3 className="font-heading font-semibold text-base sm:text-xl text-text-body mt-5 sm:mt-6 mb-2 sm:mb-3">
               {es ? "5.1 No Venta Comercial de Información Personal" : "5.1 No Commercial Sale of Personal Information"}
             </h3>
             <p className="text-text-body">
@@ -159,7 +159,7 @@ export default function PrivacyContent() {
                 ? <><em>No vendemos, alquilamos, arrendamos ni intercambiamos información personal a terceros con fines comerciales o de marketing. No vendemos sus datos.</em></>
                 : <>We do not sell, rent, lease, or trade personal information to third parties for commercial or marketing purposes. <em>We do not sell your data.</em></>}
             </p>
-            <h3 className="font-heading font-semibold text-xl text-text-body mt-6 mb-3">
+            <h3 className="font-heading font-semibold text-base sm:text-xl text-text-body mt-5 sm:mt-6 mb-2 sm:mb-3">
               {es ? "5.2 Proveedores de Servicios Terceros" : "5.2 Third-Party Service Providers"}
             </h3>
             <p className="text-text-body">
@@ -167,7 +167,7 @@ export default function PrivacyContent() {
                 ? "Podemos divulgar información a proveedores, contratistas o prestadores de servicios terceros que asisten con alojamiento web, almacenamiento de datos, comunicaciones, seguridad, análisis o soporte operativo. Tales divulgaciones se limitan a lo razonablemente necesario."
                 : "We may disclose information to third-party vendors, contractors, or service providers who assist with website hosting, data storage, communications, security, analytics, or operational support. Such disclosures are limited to what is reasonably necessary, and providers are required to maintain appropriate confidentiality and safeguards."}
             </p>
-            <h3 className="font-heading font-semibold text-xl text-text-body mt-6 mb-3">
+            <h3 className="font-heading font-semibold text-base sm:text-xl text-text-body mt-5 sm:mt-6 mb-2 sm:mb-3">
               {es ? "5.3 Divulgaciones Legales, Regulatorias y de Protección" : "5.3 Legal, Regulatory, and Protective Disclosures"}
             </h3>
             <p className="text-text-body">
@@ -184,7 +184,7 @@ export default function PrivacyContent() {
             </ul>
 
             {/* Section 6 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "6. Retención y Almacenamiento de Datos" : "6. Data Retention and Storage"}
             </h2>
             <p className="text-text-body">
@@ -207,7 +207,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 7 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "7. Seguridad de Datos y Reconocimiento de Riesgo" : "7. Data Security and Risk Acknowledgment"}
             </h2>
             <p className="text-text-body">
@@ -222,7 +222,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 8 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "8. Sin Confidencialidad ni Dependencia Profesional" : "8. No Confidentiality or Professional Reliance"}
             </h2>
             <p className="text-text-body">
@@ -237,7 +237,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 9 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "9. Sitios Web de Terceros y Servicios Externos" : "9. Third-Party Websites and External Services"}
             </h2>
             <p className="text-text-body">
@@ -247,7 +247,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 10 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "10. Privacidad de Menores" : "10. Children's Privacy"}
             </h2>
             <p className="text-text-body">
@@ -257,7 +257,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 11 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "11. Alcance Geográfico y Jurisdicción" : "11. Geographic Scope and Jurisdiction"}
             </h2>
             <p className="text-text-body">
@@ -267,7 +267,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 12 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "12. Limitación de Responsabilidad" : "12. Limitation of Liability"}
             </h2>
             <p className="text-text-body">
@@ -277,7 +277,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 13 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "13. Modificaciones de la Política" : "13. Policy Modifications"}
             </h2>
             <p className="text-text-body">
@@ -287,7 +287,7 @@ export default function PrivacyContent() {
             </p>
 
             {/* Section 14 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "14. Información de Contacto" : "14. Contact Information"}
             </h2>
             <p className="text-text-body">

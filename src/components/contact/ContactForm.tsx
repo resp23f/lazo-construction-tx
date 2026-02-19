@@ -119,14 +119,14 @@ export default function ContactForm() {
   }
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition-all ${
+    `w-full px-4 py-3 rounded-lg border text-base focus:ring-2 focus:outline-none transition-all ${
       showErrors && errors[field]
         ? "border-red-400 focus:border-red-500 focus:ring-red-200"
         : "border-gray-300 focus:border-primary focus:ring-primary/20"
     }`;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" noValidate>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
           {t("contactForm.name")} <span className="text-red-500">*</span>
@@ -195,9 +195,9 @@ export default function ContactForm() {
           onSuccess={setTurnstileToken}
           onError={() => setTurnstileToken(null)}
           onExpire={() => setTurnstileToken(null)}
-          options={{ theme: "light", size: "normal" }}
+          options={{ theme: "light", size: "flexible" }}
         />
-        <Button type="submit" className="w-[300px]" disabled={status === "loading" || !turnstileToken}>
+        <Button type="submit" className="w-full sm:w-[300px]" disabled={status === "loading" || !turnstileToken}>
           {status === "loading" ? t("contactForm.sending") : t("contactForm.sendMessage")}
         </Button>
       </div>

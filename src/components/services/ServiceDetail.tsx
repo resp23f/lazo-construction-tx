@@ -21,16 +21,16 @@ export default function ServiceDetail({
   imagePosition = "center",
 }: ServiceDetailProps) {
   return (
-    <section className="py-16 bg-surface border-t border-gray-100">
+    <section className="py-10 sm:py-16 bg-surface border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Content */}
             <div className={isAlternate ? "lg:order-2" : ""}>
-              <h2 className="font-heading text-xl font-bold text-primary sm:text-2xl lg:text-3xl">
+              <h2 className="font-heading text-lg font-bold text-primary sm:text-2xl lg:text-3xl">
                 {title}
               </h2>
-              <p className="mt-4 text-text-muted leading-relaxed">{description}</p>
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-text-muted leading-relaxed">{description}</p>
             </div>
 
             {/* Image */}

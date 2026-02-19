@@ -20,8 +20,8 @@ export default function Footer() {
   return (
     <footer className="bg-gray-200 text-text">
       <Container>
-        <div className="py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 justify-items-center lg:justify-items-stretch items-start">
+        <div className="py-8 sm:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 justify-items-center lg:justify-items-stretch items-start">
             {/* Logo & Description */}
             <div className="flex flex-col items-center -mt-6">
               <Link href="/" className="inline-block">
@@ -53,7 +53,7 @@ export default function Footer() {
 
             {/* Navigation */}
             <div className="flex flex-col items-center">
-              <h3 className="font-heading font-bold text-lg mb-4">
+              <h3 className="font-heading font-bold text-base sm:text-lg mb-3 sm:mb-4">
                 {t("footer.quickLinks")}
               </h3>
               <ul className="space-y-2 text-center">
@@ -69,7 +69,7 @@ export default function Footer() {
 
             {/* Contact Info */}
             <div className="flex flex-col items-center">
-              <h3 className="font-heading font-bold text-lg mb-4">
+              <h3 className="font-heading font-bold text-base sm:text-lg mb-3 sm:mb-4">
                 {t("footer.contactUs")}
               </h3>
               <ul className="space-y-2 flex flex-col items-center">
@@ -96,7 +96,7 @@ export default function Footer() {
 
             {/* Service Areas */}
             <div className="flex flex-col items-center">
-              <h3 className="font-heading font-bold text-lg mb-4">
+              <h3 className="font-heading font-bold text-base sm:text-lg mb-3 sm:mb-4">
                 {t("footer.serviceAreas")}
               </h3>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
@@ -115,14 +115,14 @@ export default function Footer() {
         <Container>
           <div className="py-5">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-center md:text-left">
-              <p className="text-gray-500 text-xs uppercase tracking-wide">
+              <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-wide">
                 &copy; {new Date().getFullYear()} LAZO Construction LLC. {t("footer.rights")}
               </p>
-              <div className="flex justify-center md:justify-end gap-6">
-                <Link href="/privacy" className="text-gray-500 hover:text-gray-700 transition-colors text-xs uppercase tracking-wide">
+              <div className="flex justify-center md:justify-end gap-4 sm:gap-6">
+                <Link href="/privacy" className="text-gray-500 hover:text-gray-700 transition-colors text-[10px] sm:text-xs uppercase tracking-wide">
                   {t("footer.privacy")}
                 </Link>
-                <Link href="/terms" className="text-gray-500 hover:text-gray-700 transition-colors text-xs uppercase tracking-wide">
+                <Link href="/terms" className="text-gray-500 hover:text-gray-700 transition-colors text-[10px] sm:text-xs uppercase tracking-wide">
                   {t("footer.terms")}
                 </Link>
               </div>

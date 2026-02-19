@@ -34,11 +34,11 @@ export default function ServiceCard({
         />
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-heading font-bold text-xl text-text group-hover:text-primary transition-colors">
+      <div className="p-4 sm:p-6 flex flex-col flex-1">
+        <h3 className="font-heading font-bold text-base sm:text-xl text-text group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="mt-2 text-text-muted">{description}</p>
+        <p className="mt-1.5 sm:mt-2 text-sm sm:text-base text-text-muted">{description}</p>
         <div className="mt-auto pt-4 flex items-center gap-2 text-primary font-medium text-sm">
           {learnMoreText}
           <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" strokeWidth={2} />

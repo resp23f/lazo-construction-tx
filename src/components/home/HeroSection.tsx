@@ -9,7 +9,7 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-primary-dark py-16 sm:py-24 lg:py-40">
+    <section className="relative bg-primary-dark pt-20 pb-44 sm:py-24 lg:py-40">
       {/* Background Image */}
       <Image
         src="/images/hero.png"
@@ -26,23 +26,38 @@ export default function HeroSection() {
           <h1 className="font-heading text-3xl font-extrabold text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
             {t("hero.title")}
           </h1>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl drop-shadow-md">
+          <p className="mt-3 sm:mt-6 text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl drop-shadow-md">
             {t("hero.subtitle")}
           </p>
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Button href="/contact" className="text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40">
+          <div className="hidden sm:flex mt-10 flex-row gap-4">
+            <Button href="/contact" className="text-base px-8 py-4 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40">
               {t("hero.cta")}
             </Button>
             <Button
               href="/portfolio"
               variant="outline"
-              className="text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary"
+              className="text-base px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
             >
               {t("hero.secondary")}
             </Button>
           </div>
         </div>
       </Container>
+      {/* Mobile CTAs pinned to bottom of hero */}
+      <div className="sm:hidden absolute bottom-6 left-0 right-0 z-10 px-4">
+        <div className="flex flex-row gap-3">
+          <Button href="/contact" className="flex-1 text-xs px-5 py-2.5 shadow-lg shadow-primary/30">
+            {t("hero.cta")}
+          </Button>
+          <Button
+            href="/portfolio"
+            variant="outline"
+            className="flex-1 text-xs px-5 py-2.5 border-white text-white hover:bg-white hover:text-primary"
+          >
+            {t("hero.secondary")}
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }

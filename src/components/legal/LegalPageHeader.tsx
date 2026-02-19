@@ -14,11 +14,11 @@ export default function LegalPageHeader({ titleEn, titleEs }: LegalPageHeaderPro
   const { lang } = useLanguage();
 
   return (
-    <section className="bg-primary py-12">
+    <section className="bg-primary py-8 sm:py-12">
       <Container>
         <ScrollReveal>
           <Breadcrumbs items={[{ label: lang === "es" ? titleEs : titleEn }]} />
-          <h1 className="font-heading text-3xl font-semibold text-white sm:text-4xl lg:text-5xl tracking-tight">
+          <h1 className="font-heading text-2xl font-semibold text-white sm:text-4xl lg:text-5xl tracking-tight">
             {lang === "es" ? titleEs : titleEn}
           </h1>
         </ScrollReveal>

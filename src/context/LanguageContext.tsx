@@ -67,7 +67,7 @@ const translations: Record<Language, Record<string, unknown>> = {
       getAQuote: "Get a Quote",
     },
     hero: {
-      title: "Quality Construction Across Texas",
+      title: "Your Vision, Our Craft.",
       subtitle: "From kitchen remodels to commercial build outs, we bring your vision to life with expert craftsmanship and honest pricing.",
       cta: "Get a Free Estimate",
       secondary: "View Our Work",
@@ -333,10 +333,10 @@ const translations: Record<Language, Record<string, unknown>> = {
       getAQuote: "Cotización",
     },
     hero: {
-      title: "Construcción de Calidad en Todo Texas",
-      subtitle: "Desde remodelaciones de cocina hasta proyectos comerciales, hacemos realidad su visión con trabajo experto y precios honestos.",
+      title: "Tu Visión, Nuestro Oficio.",
+      subtitle: "De remodelaciones de cocina a proyectos comerciales, damos vida a su visión con trabajo experto y precios honestos.",
       cta: "Estimado Gratis",
-      secondary: "Ver Nuestro Trabajo",
+      secondary: "Ver Trabajos",
     },
     services: {
       heading: "Lo Que Hacemos",

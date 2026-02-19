@@ -60,6 +60,7 @@ export default function LightboxModal({
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.dataset.lightboxOpen = "true";
       requestAnimationFrame(() => setVisible(true));
 
       const handleKeyDown = (e: KeyboardEvent) => {
@@ -72,6 +73,7 @@ export default function LightboxModal({
         window.removeEventListener("keydown", handleKeyDown);
         document.body.style.overflow = "";
         document.body.style.paddingRight = "";
+        delete document.body.dataset.lightboxOpen;
       };
     }
   }, [isOpen, handleClose, onPrev, onNext]);
@@ -92,7 +94,7 @@ export default function LightboxModal({
       <div className={`absolute inset-0 bottom-[35%] z-[5] cursor-pointer transition-opacity duration-150 ${visible ? "opacity-100" : "opacity-0"}`} onClick={handleClose} />
 
       {/* Fixed bottom bar — arrows + info, never moves */}
-      <div className={`fixed bottom-[16%] left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 sm:gap-6 transition-opacity duration-150 ${visible ? "opacity-100" : "opacity-0"}`} onClick={(e) => e.stopPropagation()}>
+      <div className={`fixed bottom-[8%] sm:bottom-[16%] left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 sm:gap-6 transition-opacity duration-150 ${visible ? "opacity-100" : "opacity-0"}`} onClick={(e) => e.stopPropagation()}>
         <button
           onClick={currentIndex > 0 ? onPrev : undefined}
           className={`p-2 rounded-full transition-all shadow-sm ${
@@ -148,7 +150,7 @@ export default function LightboxModal({
 
         {/* Image */}
         <div className={`relative w-full overflow-hidden rounded-xl shadow-2xl ${
-          isPortrait ? "max-h-[70vh]" : "max-h-[75vh]"
+          isPortrait ? "max-h-[55vh] sm:max-h-[70vh]" : "max-h-[60vh] sm:max-h-[75vh]"
         }`}>
           {!imageLoaded && (
             <div className="aspect-[4/3]">
@@ -159,7 +161,7 @@ export default function LightboxModal({
           <img
             src={imageSrc}
             alt={imageAlt}
-            className={`w-full h-auto max-h-[75vh] object-contain transition-opacity duration-300 ${
+            className={`w-full h-auto max-h-[60vh] sm:max-h-[75vh] object-contain transition-opacity duration-300 ${
               imageLoaded ? "opacity-100" : "opacity-0 absolute"
             }`}
             onLoad={(e) => {

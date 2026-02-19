@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 export default function PageTransition({
   children,
@@ -9,32 +9,26 @@ export default function PageTransition({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(true);
-  const [currentPath, setCurrentPath] = useState(pathname);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const prevPathRef = useRef(pathname);
 
-  // Derive state from pathname change — no setState in effect
-  if (pathname !== currentPath) {
-    setCurrentPath(pathname);
-    setIsVisible(false);
-  }
-
-  // Fade in after reset
   useEffect(() => {
-    if (!isVisible) {
-      const frame = requestAnimationFrame(() => {
+    if (pathname !== prevPathRef.current) {
+      prevPathRef.current = pathname;
+      const el = containerRef.current;
+      if (el) {
+        el.style.opacity = "0";
         requestAnimationFrame(() => {
-          setIsVisible(true);
+          el.style.opacity = "1";
         });
-      });
-      return () => cancelAnimationFrame(frame);
+      }
     }
-  }, [isVisible]);
+  }, [pathname]);
 
   return (
     <div
-      className={`transition-opacity duration-300 ease-out ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      ref={containerRef}
+      className="transition-opacity duration-200 ease-out"
     >
       {children}
     </div>

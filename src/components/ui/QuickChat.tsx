@@ -84,29 +84,31 @@ export default function QuickChat() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`quick-chat-fab fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center ${
+        className={`quick-chat-fab fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center ${
           isOpen ? "" : "animate-pulse-ring"
         }`}
         aria-label="Quick message"
       >
         {isOpen ? (
-          <X className="h-7 w-7" strokeWidth={2} />
+          <X className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
         ) : (
-          <MessageCircle className="h-7 w-7" strokeWidth={2} />
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
         )}
       </button>
 
       {/* Chat Panel */}
       <div
         ref={panelRef}
-        className={`quick-chat-fab fixed bottom-[104px] right-6 z-50 w-[380px] max-h-[560px] bg-white rounded-2xl shadow-2xl border border-primary/30 overflow-hidden transition-all duration-300 origin-bottom-right ${
+        className={`quick-chat-fab fixed z-50 bg-white shadow-2xl overflow-hidden transition-all duration-300
+          bottom-24 right-4 left-4 rounded-2xl max-h-[75vh]
+          sm:left-auto sm:right-6 sm:bottom-[104px] sm:w-[380px] sm:max-h-[560px] sm:origin-bottom-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4 pointer-events-none"
         }`}
       >
         {/* Header */}
-        <div className="bg-primary px-5 py-4">
+        <div className="bg-primary px-4 py-3 sm:px-5 sm:py-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
               <MessageCircle className="h-5 w-5 text-white" strokeWidth={2} />
@@ -121,7 +123,7 @@ export default function QuickChat() {
         </div>
 
         {/* Body */}
-        <div className="p-5">
+        <div className="p-4 sm:p-5 overflow-y-auto">
           {status === "success" ? (
             <div className="text-center py-8">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 mb-4">
@@ -147,7 +149,7 @@ export default function QuickChat() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={`${t("quickChat.name")} *`}
-                  className={`w-full px-3.5 py-2.5 rounded-lg border text-sm focus:ring-2 focus:outline-none transition-all ${
+                  className={`w-full px-3.5 py-2.5 rounded-lg border text-base sm:text-sm focus:ring-2 focus:outline-none transition-all ${
                     showErrors && errors.name
                       ? "border-red-400 focus:border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-primary focus:ring-primary/20"
@@ -165,7 +167,7 @@ export default function QuickChat() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder={`${t("quickChat.phone")} *`}
-                  className={`w-full px-3.5 py-2.5 rounded-lg border text-sm focus:ring-2 focus:outline-none transition-all ${
+                  className={`w-full px-3.5 py-2.5 rounded-lg border text-base sm:text-sm focus:ring-2 focus:outline-none transition-all ${
                     showErrors && errors.phone
                       ? "border-red-400 focus:border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-primary focus:ring-primary/20"
@@ -184,7 +186,7 @@ export default function QuickChat() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder={`${t("quickChat.message")} *`}
-                  className={`w-full px-3.5 py-2.5 rounded-lg border text-sm focus:ring-2 focus:outline-none transition-all resize-none ${
+                  className={`w-full px-3.5 py-2.5 rounded-lg border text-base sm:text-sm focus:ring-2 focus:outline-none transition-all resize-none ${
                     showErrors && errors.message
                       ? "border-red-400 focus:border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-primary focus:ring-primary/20"
@@ -208,7 +210,7 @@ export default function QuickChat() {
                   onSuccess={setTurnstileToken}
                   onError={() => setTurnstileToken(null)}
                   onExpire={() => setTurnstileToken(null)}
-                  options={{ theme: "light", size: "normal" }}
+                  options={{ theme: "light", size: "flexible" }}
                 />
                 <button
                   type="submit"

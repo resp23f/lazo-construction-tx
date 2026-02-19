@@ -45,7 +45,8 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* Hide chat widget when mobile menu is open */
-body[data-mobile-menu-open] .quick-chat-fab {
+/* Hide chat widget when mobile menu or lightbox is open */
+body[data-mobile-menu-open] .quick-chat-fab,
+body[data-lightbox-open] .quick-chat-fab {
   display: none !important;
 }

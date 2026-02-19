@@ -26,7 +26,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "2",
-    title: "Two-Tone Herringbone",
+    title: "Two Tone Herringbone",
     alt: "Kitchen remodel featuring two-tone cabinets and herringbone backsplash",
     category: "Kitchens",
     image: "/images/portfolio/kitchen-remodel-two-tone-green-herringbone-backsplash.jpg",
@@ -76,7 +76,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "7",
-    title: "Hexagon Tile Walk-In",
+    title: "Hexagon Tile Walk In",
     alt: "Bathroom remodel with walk-in shower and hexagon tile",
     category: "Bathrooms",
     image: "/images/portfolio/bathroom-remodel-walk-in-shower-hexagon-tile.jpg",
@@ -191,7 +191,7 @@ const portfolioItems: PortfolioItem[] = [
   // Commercial (6)
   {
     id: "25",
-    title: "Treatment Center Build-Out",
+    title: "Treatment Center Build Out",
     alt: "Medical facility treatment center build-out",
     category: "Commercial",
     image: "/images/portfolio/commercial-medical-facility-treatment-center-buildout.jpeg",
@@ -286,7 +286,7 @@ export default function PortfolioGrid() {
         onCategoryChange={setActiveCategory}
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {filteredItems.map((item, index) => (
           <button
             key={item.id}
@@ -301,11 +301,11 @@ export default function PortfolioGrid() {
                 className="object-cover"
               />
             </div>
-            <div className="p-4 text-left">
-              <p className="text-sm font-medium text-text-muted uppercase tracking-wide">
+            <div className="p-2.5 sm:p-4 text-left">
+              <p className="text-xs sm:text-sm font-medium text-text-muted uppercase tracking-wide">
                 {t(categoryTranslationKeys[item.category]) || item.category}
               </p>
-              <p className="mt-1 text-base font-semibold text-primary">
+              <p className="mt-0.5 sm:mt-1 text-sm sm:text-base font-semibold text-primary">
                 {item.title}
               </p>
             </div>

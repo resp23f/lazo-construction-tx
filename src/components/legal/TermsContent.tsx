@@ -12,9 +12,9 @@ export default function TermsContent() {
     <>
       <LegalPageHeader titleEn="Terms and Conditions" titleEs="Términos y Condiciones" />
 
-      <section className="py-20 bg-surface">
+      <section className="py-12 sm:py-20 bg-surface">
         <Container>
-          <div className="max-w-3xl mx-auto prose prose-lg">
+          <div className="max-w-3xl mx-auto prose prose-sm sm:prose-lg">
             <p className="text-text-body text-sm">
               {es ? "Última actualización: 15 de enero de 2026" : "Last Updated: January 15, 2026"}
             </p>
@@ -35,7 +35,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 1 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "1. El Uso del Sitio es Solo Informativo — Sin Oferta, Sin Contrato, Sin Obligación" : "1. Website Use Is Informational Only — No Offer, No Contract, No Duty"}
             </h2>
             <p className="text-text-body">
@@ -57,7 +57,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 2 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "2. Sin Dependencia; El Usuario Asume Todo el Riesgo" : "2. No Reliance; User Assumes All Risk"}
             </h2>
             <p className="text-text-body">
@@ -70,7 +70,7 @@ export default function TermsContent() {
             </ul>
 
             {/* Section 3 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "3. Elegibilidad, Autoridad y Representaciones" : "3. Eligibility, Authority, and Representations"}
             </h2>
             <p className="text-text-body">
@@ -84,7 +84,7 @@ export default function TermsContent() {
             </ul>
 
             {/* Section 4 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "4. Uso Permitido y Prohibido" : "4. Permitted and Prohibited Use"}
             </h2>
             <p className="text-text-body">
@@ -105,7 +105,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 5 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "5. Estimados, Cotizaciones, Precios y Programación — Naturaleza Explícitamente No Vinculante" : "5. Estimates, Quotes, Pricing, and Scheduling — Explicit Non-Binding Nature"}
             </h2>
             <p className="text-text-body">
@@ -126,7 +126,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 6 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "6. La Construcción es Inherentemente Incierta — Asignación de Riesgo" : "6. Construction Is Inherently Uncertain — Allocation of Risk"}
             </h2>
             <p className="text-text-body">
@@ -149,7 +149,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 7 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "7. Permisos, Inspecciones y Retrasos Gubernamentales" : "7. Permits, Inspections, and Governmental Delays"}
             </h2>
             <p className="text-text-body">
@@ -164,7 +164,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 8 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "8. Subcontratistas, Proveedores y Contratistas Independientes" : "8. Subcontractors, Suppliers, and Independent Contractors"}
             </h2>
             <p className="text-text-body">
@@ -174,7 +174,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 9 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "9. Contenido del Sitio; Descargo de Responsabilidad \"Tal Cual\"" : "9. Website Content; \"As-Is\" Disclaimer"}
             </h2>
             <p className="text-text-body">
@@ -184,7 +184,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 10 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "10. Limitación de Responsabilidad — Protección Máxima de Texas" : "10. Limitation of Liability — Texas-Maximum Protection"}
             </h2>
             <p className="text-text-body">
@@ -199,7 +199,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 11 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "11. Indemnización" : "11. Indemnification — Broad and One-Sided"}
             </h2>
             <p className="text-text-body">
@@ -209,7 +209,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 12 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "12. Comunicaciones; Sin Confidencialidad" : "12. Communications; No Confidentiality"}
             </h2>
             <p className="text-text-body">
@@ -219,7 +219,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 13 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "13. Fuerza Mayor" : "13. Force Majeure — Broadly Defined"}
             </h2>
             <p className="text-text-body">
@@ -229,7 +229,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 14 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "14. Arbitraje Vinculante y Renuncia a Acción Colectiva" : "14. Binding Arbitration and Class Action Waiver"}
             </h2>
             <p className="text-text-body">
@@ -248,7 +248,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 15 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "15. Ley Aplicable, Jurisdicción y Competencia" : "15. Governing Law, Venue, and Jurisdiction"}
             </h2>
             <p className="text-text-body">
@@ -258,7 +258,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 16 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "16. Honorarios de Abogados y Costos" : "16. Attorneys' Fees and Costs"}
             </h2>
             <p className="text-text-body">
@@ -268,7 +268,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 17 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "17. Divisibilidad y Aplicación" : "17. Severability and Enforcement"}
             </h2>
             <p className="text-text-body">
@@ -278,7 +278,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 18 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "18. Modificaciones y Uso Continuado" : "18. Modifications and Continued Use"}
             </h2>
             <p className="text-text-body">
@@ -288,7 +288,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 19 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "19. Acuerdo Completo" : "19. Entire Agreement"}
             </h2>
             <p className="text-text-body">
@@ -298,7 +298,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 20 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "20. Propiedad Intelectual" : "20. Intellectual Property"}
             </h2>
             <p className="text-text-body">
@@ -313,7 +313,7 @@ export default function TermsContent() {
             </p>
 
             {/* Section 21 */}
-            <h2 className="font-heading font-bold text-2xl text-text-body mt-10 mb-4">
+            <h2 className="font-heading font-bold text-lg sm:text-2xl text-text-body mt-8 sm:mt-10 mb-3 sm:mb-4">
               {es ? "21. Información de Contacto" : "21. Contact Information"}
             </h2>
             <p className="text-text-body">

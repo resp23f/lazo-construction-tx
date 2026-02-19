@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import QuickChat from "@/components/ui/QuickChat";
 import Providers from "@/components/Providers";
 
 const poppins = Poppins({
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
+          <QuickChat />
         </Providers>
       </body>
     </html>

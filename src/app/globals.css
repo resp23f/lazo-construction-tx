@@ -25,6 +25,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Quick Chat pulse ring */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(26, 54, 84, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(26, 54, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(26, 54, 84, 0); }
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
 /* Hide scrollbar for horizontal scroll areas */
 .scrollbar-hide {
   -ms-overflow-style: none;

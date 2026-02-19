@@ -292,6 +292,22 @@ const translations: Record<Language, Record<string, unknown>> = {
       serviceAreas: "Service Areas",
       serviceAreasDesc: "Austin, Houston, Manor & surrounding areas in Central and Southeast Texas",
     },
+    // Quick Chat
+    quickChat: {
+      title: "Quick Message",
+      subtitle: "We'll get back to you within 24 hours.",
+      name: "Your Name",
+      phone: "Phone Number",
+      message: "How can we help?",
+      sending: "Sending...",
+      send: "Send Message",
+      successTitle: "Sent!",
+      successMsg: "We'll be in touch soon.",
+      errorMsg: "Something went wrong. Try again or call us.",
+      errName: "Please enter your name.",
+      errPhone: "Please enter your phone number.",
+      errMessage: "Please describe what you need.",
+    },
     // Portfolio Page
     portfolioPage: {
       breadcrumb: "Portfolio",
@@ -541,6 +557,22 @@ const translations: Record<Language, Record<string, unknown>> = {
       sun: "Dom: Cerrado",
       serviceAreas: "Áreas de Servicio",
       serviceAreasDesc: "Austin, Houston, Manor y áreas cercanas en el Centro y Sureste de Texas",
+    },
+    // Quick Chat
+    quickChat: {
+      title: "Mensaje Rápido",
+      subtitle: "Le responderemos en 24 horas.",
+      name: "Su Nombre",
+      phone: "Número de Teléfono",
+      message: "¿Cómo podemos ayudarle?",
+      sending: "Enviando...",
+      send: "Enviar Mensaje",
+      successTitle: "¡Enviado!",
+      successMsg: "Nos comunicaremos pronto.",
+      errorMsg: "Algo salió mal. Intente de nuevo o llámenos.",
+      errName: "Por favor ingrese su nombre.",
+      errPhone: "Por favor ingrese su número de teléfono.",
+      errMessage: "Por favor describa lo que necesita.",
     },
     // Portfolio Page
     portfolioPage: {

@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 import FilterBar from "./FilterBar";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 import LightboxModal from "./LightboxModal";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -295,12 +295,11 @@ export default function PortfolioGrid() {
               className="group w-full overflow-hidden rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer bg-white"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
+                <SkeletonImage
                   src={item.image}
                   alt={item.alt}
-                  fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-4 text-left">

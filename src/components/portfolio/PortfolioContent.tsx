@@ -6,6 +6,7 @@ import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { useLanguage } from "@/context/LanguageContext";
+import PortfolioSkeleton from "@/components/portfolio/PortfolioSkeleton";
 
 export default function PortfolioContent() {
   const { t } = useLanguage();
@@ -28,7 +29,7 @@ export default function PortfolioContent() {
 
       <section className="py-20 bg-background">
         <Container>
-          <Suspense fallback={<div className="text-center py-12 text-text-muted">{t("portfolioPage.loading")}</div>}>
+          <Suspense fallback={<PortfolioSkeleton />}>
             <PortfolioGrid />
           </Suspense>
         </Container>

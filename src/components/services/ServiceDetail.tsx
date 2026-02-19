@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 
 interface ServiceDetailProps {
   title: string;
@@ -19,7 +21,7 @@ export default function ServiceDetail({
   imagePosition = "center",
 }: ServiceDetailProps) {
   return (
-    <section className={`py-16 ${isAlternate ? "bg-surface" : "bg-background"}`}>
+    <section className="py-16 bg-surface border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -34,12 +36,10 @@ export default function ServiceDetail({
             {/* Image */}
             <div className={isAlternate ? "lg:order-1" : ""}>
               <div className="relative aspect-video rounded-xl overflow-hidden shadow-md">
-                <Image
+                <SkeletonImage
                   src={image}
                   alt={imageAlt}
-                  fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
                   style={{ objectPosition: imagePosition }}
                 />
               </div>

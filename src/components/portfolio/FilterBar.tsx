@@ -19,7 +19,7 @@ export default function FilterBar({
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
-          className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 min-w-[80px] text-center ${
+          className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 min-w-[80px] text-center rounded-lg ${
             activeCategory === category
               ? "bg-primary text-white"
               : "bg-surface text-text border border-gray-200 hover:border-primary hover:text-primary"

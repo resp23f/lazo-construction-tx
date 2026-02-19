@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import FilterBar from "./FilterBar";
 import SkeletonImage from "@/components/ui/SkeletonImage";
 import LightboxModal from "./LightboxModal";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface PortfolioItem {
@@ -289,29 +288,28 @@ export default function PortfolioGrid() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredItems.map((item, index) => (
-          <ScrollReveal key={item.id} delay={index * 50}>
-            <button
-              onClick={() => openLightbox(index)}
-              className="group w-full overflow-hidden rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer bg-white"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <SkeletonImage
-                  src={item.image}
-                  alt={item.alt}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-all duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4 text-left">
-                <p className="text-sm font-medium text-text-muted uppercase tracking-wide">
-                  {t(categoryTranslationKeys[item.category]) || item.category}
-                </p>
-                <p className="mt-1 text-base font-semibold text-primary">
-                  {item.title}
-                </p>
-              </div>
-            </button>
-          </ScrollReveal>
+          <button
+            key={item.id}
+            onClick={() => openLightbox(index)}
+            className="group w-full overflow-hidden rounded-xl border border-gray-200 hover:border-primary hover:shadow-lg transition-all cursor-pointer bg-white"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <SkeletonImage
+                src={item.image}
+                alt={item.alt}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-4 text-left">
+              <p className="text-sm font-medium text-text-muted uppercase tracking-wide">
+                {t(categoryTranslationKeys[item.category]) || item.category}
+              </p>
+              <p className="mt-1 text-base font-semibold text-primary">
+                {item.title}
+              </p>
+            </div>
+          </button>
         ))}
       </div>
 
@@ -322,6 +320,8 @@ export default function PortfolioGrid() {
         totalImages={filteredItems.length}
         imageSrc={filteredItems[currentImageIndex]?.image || ""}
         imageAlt={filteredItems[currentImageIndex]?.alt || ""}
+        imageTitle={filteredItems[currentImageIndex]?.title}
+        imageCategory={filteredItems[currentImageIndex]?.category}
         onPrev={handlePrev}
         onNext={handleNext}
       />

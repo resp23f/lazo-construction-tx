@@ -9,18 +9,26 @@ export default function PageTransition({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [currentPath, setCurrentPath] = useState(pathname);
 
-  useEffect(() => {
+  // Derive state from pathname change — no setState in effect
+  if (pathname !== currentPath) {
+    setCurrentPath(pathname);
     setIsVisible(false);
-    // Small delay to ensure the opacity-0 frame renders before transitioning in
-    const frame = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setIsVisible(true);
+  }
+
+  // Fade in after reset
+  useEffect(() => {
+    if (!isVisible) {
+      const frame = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsVisible(true);
+        });
       });
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [pathname]);
+      return () => cancelAnimationFrame(frame);
+    }
+  }, [isVisible]);
 
   return (
     <div

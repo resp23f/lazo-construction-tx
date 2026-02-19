@@ -15,10 +15,6 @@
   --font-body: var(--font-poppins), sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--color-background);
   color: var(--color-text);

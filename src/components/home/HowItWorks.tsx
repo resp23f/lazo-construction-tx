@@ -18,7 +18,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 sm:py-20 bg-gray-50">
       <Container>
         <ScrollReveal>
           <SectionHeading
@@ -36,22 +36,22 @@ export default function HowItWorks() {
               <ScrollReveal key={step.number} delay={index * 100}>
                 <div className="flex gap-4 sm:gap-6">
                   <div className="flex flex-col items-center">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" strokeWidth={1.5} />
                     </div>
                     {!isLast && (
                       <div className="w-px flex-1 bg-gray-200 my-2" />
                     )}
                   </div>
 
-                  <div className={`${isLast ? "pb-0" : "pb-10"} pt-1`}>
+                  <div className={`${isLast ? "pb-0" : "pb-6 sm:pb-10"} pt-1`}>
                     <span className="text-xs font-semibold text-primary/50 uppercase tracking-wider">
                       {t("howItWorks.heading") === "Cómo Funciona" ? "PASO" : "STEP"} {step.number}
                     </span>
-                    <h3 className="font-heading font-bold text-lg text-text mt-1 mb-2">
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-text mt-1 mb-1 sm:mb-2">
                       {t(step.titleKey)}
                     </h3>
-                    <p className="text-text-muted leading-relaxed">
+                    <p className="text-text-muted text-sm sm:text-base leading-relaxed">
                       {t(step.descKey)}
                     </p>
                   </div>
@@ -62,7 +62,7 @@ export default function HowItWorks() {
         </div>
 
         <ScrollReveal delay={500}>
-          <div className="mt-14 text-center">
+          <div className="mt-10 sm:mt-14 text-center">
             <p className="text-text-muted mb-6">
               {t("howItWorks.ready")}
             </p>

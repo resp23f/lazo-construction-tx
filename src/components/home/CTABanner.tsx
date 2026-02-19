@@ -22,7 +22,7 @@ export default function CTABanner({
   const { t } = useLanguage();
 
   return (
-    <section className="bg-primary py-10 sm:py-16">
+    <section className="bg-primary py-8 sm:py-16">
       <Container>
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">

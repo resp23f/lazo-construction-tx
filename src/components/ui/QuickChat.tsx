@@ -84,7 +84,7 @@ export default function QuickChat() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center ${
+        className={`quick-chat-fab fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center ${
           isOpen ? "" : "animate-pulse-ring"
         }`}
         aria-label="Quick message"
@@ -99,7 +99,7 @@ export default function QuickChat() {
       {/* Chat Panel */}
       <div
         ref={panelRef}
-        className={`fixed bottom-[104px] right-6 z-50 w-[380px] max-h-[560px] bg-white rounded-2xl shadow-2xl border border-primary/30 overflow-hidden transition-all duration-300 origin-bottom-right ${
+        className={`quick-chat-fab fixed bottom-[104px] right-6 z-50 w-[380px] max-h-[560px] bg-white rounded-2xl shadow-2xl border border-primary/30 overflow-hidden transition-all duration-300 origin-bottom-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4 pointer-events-none"

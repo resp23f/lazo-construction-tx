@@ -41,11 +41,11 @@ const testimonials = [
 
 function StarRating() {
   return (
-    <div className="flex gap-0.5 mb-4">
+    <div className="flex gap-0.5 mb-3 sm:mb-4">
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
-          className="h-5 w-5 text-amber-400 fill-amber-400"
+          className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400 fill-amber-400"
           strokeWidth={1.5}
         />
       ))}
@@ -63,17 +63,17 @@ export default function Testimonials() {
           <SectionHeading title={t("testimonials.heading")} />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <ScrollReveal key={index} delay={index * 150}>
-              <div className="bg-surface p-5 sm:p-8 rounded-xl border border-gray-100 hover:shadow-lg translate-y-0 hover:-translate-y-1 transition-all duration-300 ease-out will-change-transform h-full flex flex-col">
+              <div className="bg-surface p-4 sm:p-8 rounded-xl border border-gray-100 hover:shadow-lg translate-y-0 hover:-translate-y-1 transition-all duration-300 ease-out will-change-transform h-full flex flex-col">
                 <StarRating />
-                <blockquote className="text-text leading-relaxed flex-grow">
+                <blockquote className="text-text text-sm sm:text-base leading-relaxed flex-grow">
                   &ldquo;{testimonial.quote[lang]}&rdquo;
                 </blockquote>
-                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
+                <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-100 flex items-center gap-3 sm:gap-4">
                   <div
-                    className={`w-12 h-12 rounded-full ${testimonial.color} flex items-center justify-center text-white font-bold text-sm`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${testimonial.color} flex items-center justify-center text-white font-bold text-xs sm:text-sm`}
                   >
                     {testimonial.initials}
                   </div>

@@ -19,7 +19,7 @@ export default function ServicesPreview() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-20 bg-white">
       <Container>
         <ScrollReveal>
           <SectionHeading
@@ -28,23 +28,23 @@ export default function ServicesPreview() {
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <ScrollReveal key={service.titleKey} delay={index * 100} className="h-full">
                 <Link
                   href={service.href}
-                  className="group block bg-background p-6 rounded-xl border border-gray-100 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full"
+                  className="group block bg-background p-4 sm:p-6 rounded-xl border border-gray-100 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full"
                 >
                   <Icon
-                    className="h-10 w-10 text-primary mb-4"
+                    className="h-8 w-8 sm:h-10 sm:w-10 text-primary mb-3 sm:mb-4"
                     strokeWidth={1.5}
                   />
-                  <h3 className="font-heading font-bold text-lg text-text group-hover:text-primary transition-colors">
+                  <h3 className="font-heading font-bold text-base sm:text-lg text-text group-hover:text-primary transition-colors">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="mt-2 text-text-muted text-sm">
+                  <p className="mt-1 sm:mt-2 text-text-muted text-xs sm:text-sm">
                     {t(service.descKey)}
                   </p>
                 </Link>

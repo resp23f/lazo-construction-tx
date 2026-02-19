@@ -18,6 +18,30 @@ export const metadata: Metadata = {
   title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
   description:
     "Professional residential and commercial construction services in Austin, Houston, and Central Texas. Kitchen remodels, bathroom renovations, commercial build outs. 20+ years experience.",
+  openGraph: {
+    title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
+    description:
+      "Professional residential and commercial construction services in Austin, Houston, and Central Texas. Kitchen remodels, bathroom renovations, commercial build outs.",
+    url: "https://www.lazoconstructiontx.com",
+    siteName: "LAZO Construction LLC",
+    images: [
+      {
+        url: "https://www.lazoconstructiontx.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LAZO Construction LLC - Residential & Commercial Contractor in Texas",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LAZO Construction LLC | Residential & Commercial Contractor | Texas",
+    description:
+      "Professional residential and commercial construction services in Austin, Houston, and Central Texas.",
+    images: ["https://www.lazoconstructiontx.com/og-image.png"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },

@@ -41,7 +41,7 @@ export default function ServicesPreview() {
                     className="h-10 w-10 text-primary mb-4"
                     strokeWidth={1.5}
                   />
-                  <h3 className="font-heading font-bold text-lg text-text group-hover:text-primary transition-colors whitespace-nowrap">
+                  <h3 className="font-heading font-bold text-lg text-text group-hover:text-primary transition-colors">
                     {t(service.titleKey)}
                   </h3>
                   <p className="mt-2 text-text-muted text-sm">

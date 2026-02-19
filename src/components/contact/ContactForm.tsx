@@ -3,50 +3,48 @@
 import { useState, useRef } from "react";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import Button from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
 
-// Sanitize input to prevent XSS
 function sanitize(str: string): string {
   return str
-    .replace(/[<>]/g, '') // Remove < and >
-    .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+=/gi, '') // Remove event handlers
+    .replace(/[<>]/g, '')
+    .replace(/javascript:/gi, '')
+    .replace(/on\w+=/gi, '')
     .trim();
 }
 
-const serviceTypes = [
-  "Kitchen Remodel",
-  "Bathroom Remodel",
-  "Room Addition",
-  "Interior/Exterior Painting",
-  "Drywall Services",
-  "Commercial Remodel",
-  "Commercial Build-Out",
-  "Other",
-];
-
-function getErrors(formData: { name: string; email: string; phone: string; serviceType: string; message: string }) {
-  const errors: Record<string, string> = {};
-  if (!formData.name.trim()) errors.name = "Please enter your name so we know who to contact.";
-  if (!formData.email.trim()) {
-    errors.email = "We need your email to send you a response.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-    errors.email = "That doesn't look like a valid email. Double-check it?";
-  }
-  if (!formData.phone.trim()) {
-    errors.phone = "A phone number helps us reach you faster.";
-  }
-  if (!formData.serviceType) {
-    errors.serviceType = "Let us know what type of service you're looking for.";
-  }
-  if (!formData.message.trim()) {
-    errors.message = formData.serviceType === "Other"
-      ? "Since you selected 'Other', please describe what you need so we can help."
-      : "Tell us a bit about your project so we can help.";
-  }
-  return errors;
-}
-
 export default function ContactForm() {
+  const { t } = useLanguage();
+
+  const serviceTypes = [
+    { value: "Kitchen Remodel", labelKey: "contactForm.serviceKitchen" },
+    { value: "Bathroom Remodel", labelKey: "contactForm.serviceBathroom" },
+    { value: "Room Addition", labelKey: "contactForm.serviceAddition" },
+    { value: "Interior/Exterior Painting", labelKey: "contactForm.servicePainting" },
+    { value: "Drywall Services", labelKey: "contactForm.serviceDrywall" },
+    { value: "Commercial Remodel", labelKey: "contactForm.serviceCommRemodel" },
+    { value: "Commercial Build-Out", labelKey: "contactForm.serviceCommBuildout" },
+    { value: "Other", labelKey: "contactForm.serviceOther" },
+  ];
+
+  function getErrors(formData: { name: string; email: string; phone: string; serviceType: string; message: string }) {
+    const errors: Record<string, string> = {};
+    if (!formData.name.trim()) errors.name = t("contactForm.errName");
+    if (!formData.email.trim()) {
+      errors.email = t("contactForm.errEmailEmpty");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = t("contactForm.errEmailInvalid");
+    }
+    if (!formData.phone.trim()) errors.phone = t("contactForm.errPhone");
+    if (!formData.serviceType) errors.serviceType = t("contactForm.errServiceType");
+    if (!formData.message.trim()) {
+      errors.message = formData.serviceType === "Other"
+        ? t("contactForm.errMessageOther")
+        : t("contactForm.errMessage");
+    }
+    return errors;
+  }
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,14 +70,9 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setShowErrors(true);
-
-    if (hasErrors || !turnstileToken) {
-      return;
-    }
+    if (hasErrors || !turnstileToken) return;
 
     setStatus("loading");
-
-    // Sanitize all form data before sending
     const sanitizedData = {
       name: sanitize(formData.name),
       email: sanitize(formData.email),
@@ -95,17 +88,10 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sanitizedData),
       });
-
       if (response.ok) {
         setStatus("success");
         setShowErrors(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          serviceType: "",
-          message: "",
-        });
+        setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
       } else {
         setStatus("error");
         turnstileRef.current?.reset();
@@ -125,11 +111,9 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="font-heading font-bold text-xl text-green-800 mb-2">
-          Message Sent!
+          {t("contactForm.successTitle")}
         </h3>
-        <p className="text-green-700">
-          Thanks! We&apos;ll be in touch within 24 hours.
-        </p>
+        <p className="text-green-700">{t("contactForm.successMsg")}</p>
       </div>
     );
   }
@@ -143,117 +127,67 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-      {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
-          Name <span className="text-red-500">*</span>
+          {t("contactForm.name")} <span className="text-red-500">*</span>
         </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className={inputClass("name")}
-        />
-        {showErrors && errors.name && (
-          <p className="mt-1.5 text-sm text-red-600">{errors.name}</p>
-        )}
+        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={inputClass("name")} />
+        {showErrors && errors.name && <p className="mt-1.5 text-sm text-red-600">{errors.name}</p>}
       </div>
 
-      {/* Email */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-text mb-2">
-          Email <span className="text-red-500">*</span>
+          {t("contactForm.email")} <span className="text-red-500">*</span>
         </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={inputClass("email")}
-        />
-        {showErrors && errors.email && (
-          <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
-        )}
+        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={inputClass("email")} />
+        {showErrors && errors.email && <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>}
       </div>
 
-      {/* Phone */}
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-text mb-2">
-          Phone <span className="text-red-500">*</span>
+          {t("contactForm.phone")} <span className="text-red-500">*</span>
         </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          className={inputClass("phone")}
-        />
-        {showErrors && errors.phone && (
-          <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
-        )}
+        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className={inputClass("phone")} />
+        {showErrors && errors.phone && <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>}
       </div>
 
-      {/* Service Type */}
       <div>
         <label htmlFor="serviceType" className="block text-sm font-medium text-text mb-2">
-          Service Type <span className="text-red-500">*</span>
+          {t("contactForm.serviceType")} <span className="text-red-500">*</span>
         </label>
-        <select
-          id="serviceType"
-          name="serviceType"
-          value={formData.serviceType}
-          onChange={handleChange}
-          className={`${inputClass("serviceType")} bg-white`}
-        >
-          <option value="">Select a service...</option>
+        <select id="serviceType" name="serviceType" value={formData.serviceType} onChange={handleChange} className={`${inputClass("serviceType")} bg-white`}>
+          <option value="">{t("contactForm.selectService")}</option>
           {serviceTypes.map((service) => (
-            <option key={service} value={service}>
-              {service}
-            </option>
+            <option key={service.value} value={service.value}>{t(service.labelKey)}</option>
           ))}
         </select>
-        {showErrors && errors.serviceType && (
-          <p className="mt-1.5 text-sm text-red-600">{errors.serviceType}</p>
-        )}
+        {showErrors && errors.serviceType && <p className="mt-1.5 text-sm text-red-600">{errors.serviceType}</p>}
       </div>
 
-      {/* Message */}
       <div>
         <div className="flex justify-between items-center mb-2">
           <label htmlFor="message" className="block text-sm font-medium text-text">
-            Project Description <span className="text-red-500">*</span>
+            {t("contactForm.projectDesc")} <span className="text-red-500">*</span>
           </label>
           <span className={`text-xs ${formData.message.length > 250 ? 'text-amber-600' : 'text-text-muted'} ${formData.message.length >= 300 ? 'text-red-500' : ''}`}>
             {formData.message.length}/300
           </span>
         </div>
         <textarea
-          id="message"
-          name="message"
-          rows={5}
-          maxLength={300}
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Tell us about your project..."
+          id="message" name="message" rows={5} maxLength={300}
+          value={formData.message} onChange={handleChange}
+          placeholder={t("contactForm.errMessage")}
           className={`${inputClass("message")} resize-none`}
         />
-        {showErrors && errors.message && (
-          <p className="mt-1.5 text-sm text-red-600">{errors.message}</p>
-        )}
+        {showErrors && errors.message && <p className="mt-1.5 text-sm text-red-600">{errors.message}</p>}
       </div>
 
-      {/* Error Message */}
       {status === "error" && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
-          Something went wrong. Please try again or call us directly.
+          {t("contactForm.errorMsg")}
         </div>
       )}
 
-      {/* Turnstile + Submit */}
       <div className="flex flex-col items-center gap-4 pt-2">
         <Turnstile
           ref={turnstileRef}
@@ -263,8 +197,8 @@ export default function ContactForm() {
           onExpire={() => setTurnstileToken(null)}
           options={{ theme: "light", size: "normal" }}
         />
-        <Button type="submit" className="px-16" disabled={status === "loading" || !turnstileToken}>
-          {status === "loading" ? "Sending..." : "Send Message"}
+        <Button type="submit" className="w-[300px]" disabled={status === "loading" || !turnstileToken}>
+          {status === "loading" ? t("contactForm.sending") : t("contactForm.sendMessage")}
         </Button>
       </div>
     </form>

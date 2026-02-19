@@ -6,6 +6,7 @@ import Image from "next/image";
 import FilterBar from "./FilterBar";
 import LightboxModal from "./LightboxModal";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PortfolioItem {
   id: string;
@@ -235,7 +236,17 @@ const portfolioItems: PortfolioItem[] = [
 
 const categories = ["All", "Kitchens", "Bathrooms", "Residential", "Exterior", "Commercial"];
 
+const categoryTranslationKeys: Record<string, string> = {
+  All: "portfolioPage.filterAll",
+  Kitchens: "portfolioPage.filterKitchens",
+  Bathrooms: "portfolioPage.filterBathrooms",
+  Residential: "portfolioPage.filterResidential",
+  Exterior: "portfolioPage.filterExterior",
+  Commercial: "portfolioPage.filterCommercial",
+};
+
 export default function PortfolioGrid() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
   const filterParam = searchParams.get("filter");
 
@@ -271,6 +282,7 @@ export default function PortfolioGrid() {
     <>
       <FilterBar
         categories={categories}
+        categoryLabels={Object.fromEntries(categories.map(c => [c, t(categoryTranslationKeys[c])]))}
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
       />
@@ -293,7 +305,7 @@ export default function PortfolioGrid() {
               </div>
               <div className="p-4 text-left">
                 <p className="text-sm font-medium text-text-muted uppercase tracking-wide">
-                  {item.category}
+                  {t(categoryTranslationKeys[item.category]) || item.category}
                 </p>
                 <p className="mt-1 text-base font-semibold text-primary">
                   {item.title}

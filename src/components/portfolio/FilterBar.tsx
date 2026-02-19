@@ -2,12 +2,14 @@
 
 interface FilterBarProps {
   categories: string[];
+  categoryLabels?: Record<string, string>;
   activeCategory: string;
   onCategoryChange: (category: string) => void;
 }
 
 export default function FilterBar({
   categories,
+  categoryLabels,
   activeCategory,
   onCategoryChange,
 }: FilterBarProps) {
@@ -17,13 +19,13 @@ export default function FilterBar({
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
-          className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
+          className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 min-w-[80px] text-center ${
             activeCategory === category
               ? "bg-primary text-white"
               : "bg-surface text-text border border-gray-200 hover:border-primary hover:text-primary"
           }`}
         >
-          {category}
+          {categoryLabels?.[category] || category}
         </button>
       ))}
     </div>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { X, Phone } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -16,6 +17,8 @@ export default function MobileMenu({
   onClose,
   navLinks,
 }: MobileMenuProps) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -31,20 +34,16 @@ export default function MobileMenu({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/50"
         onClick={onClose}
         aria-hidden="true"
       />
-
-      {/* Drawer */}
       <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-surface shadow-xl">
         <div className="flex flex-col h-full">
-          {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <span className="font-heading font-bold text-lg text-primary">
-              Menu
+              {t("mobileMenu.title")}
             </span>
             <button
               type="button"
@@ -55,8 +54,6 @@ export default function MobileMenu({
               <X className="h-6 w-6" strokeWidth={2} />
             </button>
           </div>
-
-          {/* Navigation */}
           <nav className="flex-1 p-4">
             <ul className="space-y-2">
               {navLinks.map((link) => (
@@ -72,30 +69,20 @@ export default function MobileMenu({
               ))}
             </ul>
           </nav>
-
-          {/* Phone Numbers */}
           <div className="p-4 border-t">
-            <p className="text-sm text-text-muted mb-3">Call us directly:</p>
-            <a
-              href="tel:+12814066787"
-              className="flex items-center gap-2 py-2 text-primary font-medium"
-            >
+            <p className="text-sm text-text-muted mb-3">{t("mobileMenu.callUs")}</p>
+            <a href="tel:+12814066787" className="flex items-center gap-2 py-2 text-primary font-medium">
               <Phone className="h-4 w-4" strokeWidth={2} />
               (281) 406-6787
             </a>
-            <a
-              href="tel:+18328583834"
-              className="flex items-center gap-2 py-2 text-primary font-medium"
-            >
+            <a href="tel:+18328583834" className="flex items-center gap-2 py-2 text-primary font-medium">
               <Phone className="h-4 w-4" strokeWidth={2} />
               (832) 858-3834
             </a>
           </div>
-
-          {/* CTA */}
           <div className="p-4 border-t">
             <Button href="/contact" className="w-full" onClick={onClose}>
-              Get a Quote
+              {t("mobileMenu.getAQuote")}
             </Button>
           </div>
         </div>

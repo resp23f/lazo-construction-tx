@@ -8,27 +8,33 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
-    quote:
-      "Hired Lazo for a kitchen remodel and new flooring in Austin. Jonny and his crew were easy to work with, showed up when they said they would, and did solid work. communication was painless. would definitely recommend them to anyone looking for a solid contractor.",
+    quote: {
+      en: "Hired Lazo for a kitchen remodel and new flooring in Austin. Jonny and his crew were easy to work with, showed up when they said they would, and did solid work. communication was painless. would definitely recommend them to anyone looking for a solid contractor.",
+      es: "Contratamos a Lazo para una remodelación de cocina y pisos nuevos en Austin. Jonny y su equipo fueron fáciles de tratar, llegaron cuando dijeron que llegarían, e hicieron un trabajo sólido. La comunicación fue sin problemas. Definitivamente los recomendaría a cualquiera que busque un buen contratista.",
+    },
     author: "Michael R.",
     initials: "MR",
-    location: "Austin",
+    location: { en: "Austin", es: "Austin" },
     color: "bg-gray-400",
   },
   {
-    quote:
-      "had Lazo renovate our office and they made it so easy. worked around our schedule so we stayed open the whole time. the space came out looking way better than we expected honestly. definitely calling them back for the next project.",
-    author: "Sandra T.",
-    initials: "ST",
-    location: "Houston",
-    color: "bg-gray-400",
-  },
-  {
-    quote:
-      "Great experience all around. fair price, showed up on time, and the quality was solid. our kitchen and bathroom look completely different now. would recommend to anyone in the area.",
+    quote: {
+      en: "Great experience all around. fair price, showed up on time, and the quality was solid. our kitchen and bathroom look completely different now. would recommend to anyone in the area.",
+      es: "Gran experiencia en todo sentido. Precio justo, llegaron a tiempo, y la calidad fue excelente. Nuestra cocina y baño se ven completamente diferentes ahora. Los recomendaría a cualquiera en el área.",
+    },
     author: "David & Maria L.",
     initials: "DM",
-    location: "Manor",
+    location: { en: "Austin", es: "Austin" },
+    color: "bg-gray-400",
+  },
+  {
+    quote: {
+      en: "had Lazo renovate our office and they made it so easy. worked around our schedule so we stayed open the whole time. the space came out looking way better than we expected honestly. definitely calling them back for the next project.",
+      es: "Lazo renovó nuestra oficina y lo hicieron muy fácil. Trabajaron alrededor de nuestro horario para que siguiéramos abiertos todo el tiempo. El espacio quedó mucho mejor de lo que esperábamos, honestamente. Definitivamente los llamaremos de nuevo para el próximo proyecto.",
+    },
+    author: "Sandra T.",
+    initials: "ST",
+    location: { en: "Houston", es: "Houston" },
     color: "bg-gray-400",
   },
 ];
@@ -48,7 +54,7 @@ function StarRating() {
 }
 
 export default function Testimonials() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <section className="py-12 bg-gray-50">
@@ -60,10 +66,10 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <ScrollReveal key={index} delay={index * 150}>
-              <div className="bg-surface p-5 sm:p-8 rounded-xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+              <div className="bg-surface p-5 sm:p-8 rounded-xl border border-gray-100 hover:shadow-lg translate-y-0 hover:-translate-y-1 transition-all duration-300 ease-out will-change-transform h-full flex flex-col">
                 <StarRating />
                 <blockquote className="text-text leading-relaxed flex-grow">
-                  &ldquo;{testimonial.quote}&rdquo;
+                  &ldquo;{testimonial.quote[lang]}&rdquo;
                 </blockquote>
                 <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-4">
                   <div
@@ -78,7 +84,7 @@ export default function Testimonials() {
                       </p>
                       <BadgeCheck className="h-4 w-4 text-primary" strokeWidth={2} />
                     </div>
-                    <p className="text-text-muted text-sm">{testimonial.location}</p>
+                    <p className="text-text-muted text-sm">{testimonial.location[lang]}</p>
                   </div>
                 </div>
               </div>

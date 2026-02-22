@@ -53,7 +53,8 @@ export function middleware(request: NextRequest) {
   }
 
   // Geo-check: block non-US traffic on page routes
-  const country = request.geo?.country;
+  // Next.js 15+ reads geo from Vercel headers (request.geo was removed)
+  const country = request.headers.get("x-vercel-ip-country");
 
   // If no geo data available (local dev, some edge cases), allow through
   if (!country) {

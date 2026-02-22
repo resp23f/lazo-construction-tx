@@ -326,6 +326,7 @@ const translations: Record<Language, Record<string, unknown>> = {
       filterResidential: "Residential",
       filterExterior: "Exterior",
       filterCommercial: "Commercial",
+      filterBehindTheScenes: "Behind the Scenes",
     },
   },
   es: {
@@ -592,6 +593,7 @@ const translations: Record<Language, Record<string, unknown>> = {
       filterResidential: "Residencial",
       filterExterior: "Exterior",
       filterCommercial: "Comercial",
+      filterBehindTheScenes: "Detrás de la Obra",
     },
   },
 };

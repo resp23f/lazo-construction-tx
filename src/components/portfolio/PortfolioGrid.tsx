@@ -231,9 +231,115 @@ const portfolioItems: PortfolioItem[] = [
     category: "Commercial",
     image: "/images/portfolio/commercial-medical-treatment-room-dialysis.jpeg",
   },
+  // Behind the Scenes (15)
+  {
+    id: "bts-1",
+    title: "Custom Closet Built-In",
+    alt: "Custom closet built-in shelving system under construction",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-custom-closet-built-in-shelving.jpeg",
+  },
+  {
+    id: "bts-2",
+    title: "Fireplace Wall Progress",
+    alt: "Shiplap fireplace wall with floating shelves in progress",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-fireplace-shiplap-floating-shelves-wide.jpeg",
+  },
+  {
+    id: "bts-3",
+    title: "Fireplace Alcove Work",
+    alt: "Fireplace alcove with shiplap and paper masking during painting",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-fireplace-alcove-shiplap-masking.jpeg",
+  },
+  {
+    id: "bts-4",
+    title: "Jobsite Ready",
+    alt: "LAZO Construction jobsite with truck and equipment in Texas",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-jobsite-truck-equipment-texas.jpeg",
+  },
+  {
+    id: "bts-5",
+    title: "Full Room Framing",
+    alt: "Full room framing for residential addition project",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-full-room-framing-addition.jpeg",
+  },
+  {
+    id: "bts-6",
+    title: "Framing Hallway",
+    alt: "Framing and materials staged in hallway during renovation",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-framing-hallway-materials.jpeg",
+  },
+  {
+    id: "bts-7",
+    title: "Crew at Work",
+    alt: "Crew member working on framing from ladder",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-crew-member-framing-ladder.jpeg",
+  },
+  {
+    id: "bts-8",
+    title: "Gut Renovation",
+    alt: "Gut renovation with exposed wiring and insulation removal",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-gut-renovation-wiring-insulation.jpeg",
+  },
+  {
+    id: "bts-9",
+    title: "Range Hood Install",
+    alt: "Kitchen range hood and cabinet installation in progress",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-kitchen-range-hood-cabinet-install.jpeg",
+  },
+  {
+    id: "bts-10",
+    title: "Shower Tile & Fixtures",
+    alt: "Shower tile installation with niche and black fixtures",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-shower-tile-niche-black-fixtures.jpeg",
+  },
+  {
+    id: "bts-11",
+    title: "Foyer Painting",
+    alt: "Foyer painting in progress with chandelier installation",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-foyer-painting-chandelier.jpeg",
+  },
+  {
+    id: "bts-12",
+    title: "Upper Hallway Reno",
+    alt: "Upper hallway renovation with drywall and painting",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-upper-hallway-renovation.jpeg",
+  },
+  {
+    id: "bts-13",
+    title: "Room Addition Sheathing",
+    alt: "Room addition with plywood sheathing and framing",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-room-addition-plywood-sheathing.jpeg",
+  },
+  {
+    id: "bts-14",
+    title: "Accent Wall Masking",
+    alt: "Accent wall with fireplace masking during paint prep",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-accent-wall-fireplace-masking-angle.jpeg",
+  },
+  {
+    id: "bts-15",
+    title: "Navy Accent Wall",
+    alt: "Navy accent wall painting in progress near fireplace",
+    category: "Behind the Scenes",
+    image: "/images/portfolio/bts-navy-accent-wall-painting.jpeg",
+  },
 ];
 
-const categories = ["All", "Kitchens", "Bathrooms", "Residential", "Exterior", "Commercial"];
+const categories = ["All", "Kitchens", "Bathrooms", "Residential", "Exterior", "Commercial", "Behind the Scenes"];
 
 const categoryTranslationKeys: Record<string, string> = {
   All: "portfolioPage.filterAll",
@@ -242,6 +348,7 @@ const categoryTranslationKeys: Record<string, string> = {
   Residential: "portfolioPage.filterResidential",
   Exterior: "portfolioPage.filterExterior",
   Commercial: "portfolioPage.filterCommercial",
+  "Behind the Scenes": "portfolioPage.filterBehindTheScenes",
 };
 
 export default function PortfolioGrid() {

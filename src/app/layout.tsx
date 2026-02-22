@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import QuickChat from "@/components/ui/QuickChat";
 import ConsoleSuppressor from "@/components/ui/ConsoleSuppressor";
+import { Analytics } from "@vercel/analytics/react";
 import Providers from "@/components/Providers";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import LocalBusinessJsonLd from "@/components/seo/LocalBusinessJsonLd";
@@ -100,6 +101,7 @@ export default function RootLayout({
           <Footer />
           <QuickChat />
           <ConsoleSuppressor />
+          <Analytics />
         </Providers>
       </body>
     </html>

@@ -29,7 +29,7 @@ function isBot(userAgent: string): boolean {
   return BOT_PATTERNS.some((bot) => ua.includes(bot));
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Always allow API routes (contact form, webhooks, etc.)

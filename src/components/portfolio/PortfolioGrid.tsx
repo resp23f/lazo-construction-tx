@@ -102,6 +102,27 @@ const portfolioItems: PortfolioItem[] = [
     category: "Bathrooms",
     image: "/images/portfolio/bathroom-dark-vanity-glass-shower-white-quartz.jpeg",
   },
+  {
+    id: "34",
+    title: "Gray Tile Walk-In",
+    alt: "Walk-in shower with gray subway tile and glass panel",
+    category: "Bathrooms",
+    image: "/images/portfolio/bathroom-walk-in-shower-gray-tile-glass-panel.jpeg",
+  },
+  {
+    id: "35",
+    title: "Shower Tile Detail",
+    alt: "Shower tile detail with matte black fixtures and hex floor",
+    category: "Bathrooms",
+    image: "/images/portfolio/bathroom-shower-tile-detail-black-fixtures.jpeg",
+  },
+  {
+    id: "36",
+    title: "Linear Tile & Penny Niche",
+    alt: "Walk-in shower with linear tile and penny round niche",
+    category: "Bathrooms",
+    image: "/images/portfolio/bathroom-walk-in-shower-linear-tile-penny-niche.jpeg",
+  },
   // Residential (6)
   {
     id: "11",
@@ -187,6 +208,13 @@ const portfolioItems: PortfolioItem[] = [
     alt: "Tudor-style home exterior with dark siding renovation",
     category: "Exterior",
     image: "/images/portfolio/exterior-tudor-home-dark-siding-renovation.jpeg",
+  },
+  {
+    id: "37",
+    title: "Carport & Breezeway",
+    alt: "Carport breezeway with metal roof and brick accent exterior",
+    category: "Exterior",
+    image: "/images/portfolio/exterior-carport-breezeway-metal-roof-brick.jpeg",
   },
   // Commercial (6)
   {

@@ -13,18 +13,26 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>("en");
-  const [mounted, setMounted] = useState(false);
+  const [state, setState] = useState<{ lang: Language; mounted: boolean }>({
+    lang: "en",
+    mounted: false,
+  });
 
   // Read saved language after hydration to avoid EN → ES flash
   useEffect(() => {
     const saved = localStorage.getItem("lazo-lang") as Language | null;
-    if (saved === "en" || saved === "es") setLang(saved);
-    setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Syncing with localStorage on mount
+    setState({
+      lang: saved === "en" || saved === "es" ? saved : "en",
+      mounted: true,
+    });
   }, []);
 
+  const lang = state.lang;
+  const mounted = state.mounted;
+
   const handleSetLang = (newLang: Language) => {
-    setLang(newLang);
+    setState((prev) => ({ ...prev, lang: newLang }));
     localStorage.setItem("lazo-lang", newLang);
     document.documentElement.lang = newLang;
   };
